@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/.DS_STore
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -30,6 +31,9 @@
 !/tmp/storage/.keep
 !/tmp/copy.js
 !/tmp/mhn-script.js
+!/tmp/mhn.rb
+!/tmp/mhn_full.rb
+!/tmp/data.json
 
 /public/assets
 

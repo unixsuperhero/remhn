@@ -1,0 +1,2 @@
+module EquipablesHelper
+end

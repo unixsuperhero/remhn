@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @monster %>
+
+<div>
+  <%= link_to "Edit this monster", edit_monster_path(@monster) %> |
+  <%= link_to "Back to monsters", monsters_path %>
+
+  <%= button_to "Destroy this monster", @monster, method: :delete %>
+</div>

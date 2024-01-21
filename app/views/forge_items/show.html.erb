@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @forge_item %>
+
+<div>
+  <%= link_to "Edit this forge item", edit_forge_item_path(@forge_item) %> |
+  <%= link_to "Back to forge items", forge_items_path %>
+
+  <%= button_to "Destroy this forge item", @forge_item, method: :delete %>
+</div>

@@ -1,0 +1,2 @@
+module MonsterItemsHelper
+end

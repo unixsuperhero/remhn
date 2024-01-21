@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: 1
+  subgroup: 1
+  monster: one
+
+two:
+  group: 1
+  subgroup: 1
+  monster: two

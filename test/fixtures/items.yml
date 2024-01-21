@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  swamp: false
+  swamp_outcrop: false
+  dessert: false
+  dessert_outcrop: false
+  forest: false
+  forest_outcrop: false
+
+two:
+  name: MyString
+  swamp: false
+  swamp_outcrop: false
+  dessert: false
+  dessert_outcrop: false
+  forest: false
+  forest_outcrop: false

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monster: one
+  item: one
+  grade: 1
+
+two:
+  monster: two
+  item: two
+  grade: 1

@@ -29,6 +29,7 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 !/tmp/copy.js
+!/tmp/mhn-script.js
 
 /public/assets
 

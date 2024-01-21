@@ -37,12 +37,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_235839) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.boolean "swamp"
-    t.boolean "swamp_outcrop"
-    t.boolean "dessert"
-    t.boolean "dessert_outcrop"
+    t.integer "rarity"
     t.boolean "forest"
+    t.boolean "swamp"
+    t.boolean "dessert"
     t.boolean "forest_outcrop"
+    t.boolean "swamp_outcrop"
+    t.boolean "dessert_outcrop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,8 +70,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_235839) do
     t.string "name"
     t.integer "size"
     t.boolean "swamp"
-    t.boolean "dessert"
+    t.boolean "desert"
     t.boolean "forest"
+    t.boolean "fire_weak"
+    t.boolean "water_weak"
+    t.boolean "thunder_weak"
+    t.boolean "dragon_weak"
+    t.boolean "ice_weak"
+    t.integer "poison"
+    t.integer "paralysis"
+    t.integer "stun"
+    t.integer "sleep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

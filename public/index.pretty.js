@@ -24052,7 +24052,11 @@ const K5 = ["forest", "desert", "swamp"],
      *   ("a" = carpbug, "b" = earthcrstl, "c" = bone+), 
      *   (vegetations: herbs, insects, etc.), 
      *   ("1" = bones, "2" = ores), 
-     *   (other monster's parts), 
+     *   (
+     *     other monster's parts: when item code starts with "i"
+     *       (i.e. "ic")
+     *       see: 23254 or 6: { 2: [..., "ib"] }
+     *     ), 
      * ]
      ***/
     alloy: ["b", "g", "2", "g-jagr"],

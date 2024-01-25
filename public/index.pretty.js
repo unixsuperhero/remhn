@@ -24041,6 +24041,20 @@ const K5 = ["forest", "desert", "swamp"],
     4: { 1: [100, 1], 2: [100, 1], 3: [100, 1], 4: [100, 1], 5: [100, 1] },
   },
   yE = {
+    /*** [f, g, h{1,2}, other-monster-parts-at-higher-levels] ***/
+    /*** see: line 22503 (set = x5)
+     * key == monster key
+     * unlock == earliest grade for equipment
+     * poison/ice/etc. keys == elemental...not sure what diff sub-keys are for
+     ***/
+    /*** see: line 23218 (costType == tE)
+     * [
+     *   ("a" = carpbug, "b" = earthcrstl, "c" = bone+), 
+     *   (vegetations: herbs, insects, etc.), 
+     *   ("1" = bones, "2" = ores), 
+     *   (other monster's parts), 
+     * ]
+     ***/
     alloy: ["b", "g", "2", "g-jagr"],
     bone: ["c", "g", "1", "g-jagr"],
     leather: ["b", "g", "2", "g-jagr"],

@@ -1,5 +1,6 @@
 class Equipable < ApplicationRecord
-  belongs_to :monster
+  belongs_to :monster, optional: true
+  belongs_to :element, optional: true
 
   enum group: { weapon: 1, armor: 2 }
   enum subgroup: {

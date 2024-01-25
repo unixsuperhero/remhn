@@ -1,0 +1,2 @@
+module MonsterElementsHelper
+end

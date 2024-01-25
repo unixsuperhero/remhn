@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :monster_terrains
+  resources :item_sources
+  resources :monster_elements
+  resources :weaknesses
+  resources :locations
+  resources :terrains
+  resources :elements
+  resources :stars
   resources :forge_items
   resources :skill_levels
   resources :levels

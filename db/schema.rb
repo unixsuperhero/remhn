@@ -10,16 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_20_235839) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_25_022203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "elements", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "equipables", force: :cascade do |t|
+    t.string "key"
+    t.string "name"
     t.integer "group"
     t.integer "subgroup"
+    t.integer "power"
+    t.integer "affinity"
+    t.integer "element_power"
+    t.integer "grade"
+    t.bigint "element_id"
     t.bigint "monster_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["element_id"], name: "index_equipables_on_element_id"
     t.index ["monster_id"], name: "index_equipables_on_monster_id"
   end
 
@@ -35,15 +49,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_235839) do
     t.index ["level_id"], name: "index_forge_items_on_level_id"
   end
 
+  create_table "item_sources", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.string "source_type", null: false
+    t.bigint "source_id", null: false
+    t.integer "stars"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_sources_on_item_id"
+    t.index ["source_type", "source_id"], name: "index_item_sources_on_source"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
+    t.integer "item_type"
     t.integer "rarity"
-    t.boolean "forest"
-    t.boolean "swamp"
-    t.boolean "dessert"
-    t.boolean "forest_outcrop"
-    t.boolean "swamp_outcrop"
-    t.boolean "dessert_outcrop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,27 +76,48 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_235839) do
     t.index ["equipable_id"], name: "index_levels_on_equipable_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "terrain_name"
+    t.bigint "terrain_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["terrain_id"], name: "index_locations_on_terrain_id"
+  end
+
+  create_table "monster_elements", force: :cascade do |t|
+    t.bigint "monster_id", null: false
+    t.bigint "element_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["element_id"], name: "index_monster_elements_on_element_id"
+    t.index ["monster_id"], name: "index_monster_elements_on_monster_id"
+  end
+
   create_table "monster_items", force: :cascade do |t|
     t.bigint "monster_id", null: false
     t.bigint "item_id", null: false
-    t.integer "grade"
+    t.integer "stars"
+    t.string "monster_code"
+    t.string "item_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_monster_items_on_item_id"
     t.index ["monster_id"], name: "index_monster_items_on_monster_id"
   end
 
+  create_table "monster_terrains", force: :cascade do |t|
+    t.bigint "monster_id", null: false
+    t.bigint "terrain_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monster_id"], name: "index_monster_terrains_on_monster_id"
+    t.index ["terrain_id"], name: "index_monster_terrains_on_terrain_id"
+  end
+
   create_table "monsters", force: :cascade do |t|
     t.string "name"
     t.integer "size"
-    t.boolean "swamp"
-    t.boolean "desert"
-    t.boolean "forest"
-    t.boolean "fire_weak"
-    t.boolean "water_weak"
-    t.boolean "thunder_weak"
-    t.boolean "dragon_weak"
-    t.boolean "ice_weak"
     t.integer "poison"
     t.integer "paralysis"
     t.integer "stun"
@@ -104,4 +145,30 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_235839) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stars", force: :cascade do |t|
+    t.integer "stars"
+    t.bigint "monster_id", null: false
+    t.integer "hp"
+    t.integer "raid_hp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monster_id"], name: "index_stars_on_monster_id"
+  end
+
+  create_table "terrains", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weaknesses", force: :cascade do |t|
+    t.bigint "monster_id", null: false
+    t.bigint "element_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["element_id"], name: "index_weaknesses_on_element_id"
+    t.index ["monster_id"], name: "index_weaknesses_on_monster_id"
+  end
+
+  add_foreign_key "item_sources", "items"
 end

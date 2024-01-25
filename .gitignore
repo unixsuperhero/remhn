@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-/.DS_STore
+**/.DS_STore
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

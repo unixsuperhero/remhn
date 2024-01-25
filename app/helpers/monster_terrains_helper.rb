@@ -1,0 +1,2 @@
+module MonsterTerrainsHelper
+end

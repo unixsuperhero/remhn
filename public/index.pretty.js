@@ -22550,6 +22550,10 @@ const K5 = ["forest", "desert", "swamp"],
       id: 2,
       unlock: 1,
       eff: { all: "white" },
+      /*** NOTE: these are used to determine the atk power, affinity, and elem power
+        *        see 24317 aka SE == armor power (defense)
+        *        see 24322 aka AE == different attack powers for weapons
+       ***/
       white: { base: "common-atk", crit: "common-crit" },
       arrow: [
         ["rapid", 1],
@@ -24095,6 +24099,9 @@ const K5 = ["forest", "desert", "swamp"],
     "lance",
   ],
   EE = ["helm", "mail", "gloves", "belt", "greaves"],
+  /***
+   *  NOTE: these are the weapons available for each monster
+   ***/
   TE = {
     alloy: [
       "shield-sword",

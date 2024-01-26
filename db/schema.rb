@@ -117,6 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_022203) do
 
   create_table "monsters", force: :cascade do |t|
     t.string "name"
+    t.string "key"
     t.integer "size"
     t.integer "poison"
     t.integer "paralysis"

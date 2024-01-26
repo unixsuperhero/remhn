@@ -5,6 +5,7 @@ class Item < ApplicationRecord
     vegetation: 3,
     monster: 4,
     quest: 5,
+    money: 6,
   }
 
   has_many :item_sources

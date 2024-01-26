@@ -51,6 +51,43 @@ items.each do |k, (name, type, rarity, srcs)|
   srcs.each{|src| ItemSource.find_or_create_by(item: item, source: src) }
 end
 
+Item.find_or_create_by(name: 'Zenny', item_type: :money, rarity: 1)
+Item.find_or_create_by(name: 'Armor Refining Parts', item_type: :quest)
+Item.find_or_create_by(name: 'Weapon Refining Parts', item_type: :quest)
+
+monster_names = {
+  'alloy': 'Alloy',
+  'leather': 'Leather',
+  'g-jagr': 'Great Jagras',
+  'kulu': 'Kulu-Ya-Ku',
+  'puke': 'Pukei-Pukei',
+  'barr': 'Barroth',
+  'g-girr': 'Great Girros',
+  'tobi': 'Tobi-Kadachi',
+  'halloween': 'Halloween',
+  'paol': 'Paolumu',
+  'jyur': 'Jyuratodus',
+  'anja': 'Anjanath',
+  'rathi': 'Rathian',
+  'legi': 'Legiana',
+  'diab': 'Diablos',
+  'ratha': 'Rathalos',
+  'p-rathi': 'Pink Rathian',
+  'a-ratha': 'Azure Rathalos',
+  'b-diab': 'Black Diablos',
+  'rado': 'Radobaan',
+  'banb': 'Banbaro',
+  'bari': 'Barioth',
+  'zino': 'Zinogre',
+  'small-monster': 'Small Monsters',
+  'ore': 'Ore',
+  'bone': 'Bone',
+  'plant-bug': 'Plant/Bug',
+  'event': 'Event',
+  'rare': 'Rare',
+  'ny-24': 'New Year'
+}
+
 jagras = Monster.find_or_create_by(name: 'Jagras', size: :small)
 shamos = Monster.find_or_create_by(name: 'Shamos', size: :small)
 mernos = Monster.find_or_create_by(name: 'Mernos', size: :small)
@@ -59,27 +96,27 @@ noios = Monster.find_or_create_by(name: 'Noios', size: :small)
 wulg = Monster.find_or_create_by(name: 'Wulg', size: :small)
 cortos = Monster.find_or_create_by(name: 'Cortos', size: :small)
 
-anjanath = Monster.find_or_create_by(name: 'Anjanath', size: :large)
-banbaro = Monster.find_or_create_by(name: 'Banbaro', size: :large)
-barioth = Monster.find_or_create_by(name: 'Barioth', size: :large)
-barroth = Monster.find_or_create_by(name: 'Barroth', size: :large)
-diablos = Monster.find_or_create_by(name: 'Diablos', size: :large)
-black_diablos = Monster.find_or_create_by(name: 'Black Diablos', size: :large)
-great_girros = Monster.find_or_create_by(name: 'Great Girros', size: :large)
-great_jagras = Monster.find_or_create_by(name: 'Great Jagras', size: :large)
-halloween = Monster.find_or_create_by(name: 'Halloween', size: :large)
-jyuratodus = Monster.find_or_create_by(name: 'Jyuratodus', size: :large)
-kulu_ya_ku = Monster.find_or_create_by(name: 'Kulu-Ya-Ku', size: :large)
-legiana = Monster.find_or_create_by(name: 'Legiana', size: :large)
-paolumu = Monster.find_or_create_by(name: 'Paolumu', size: :large)
-pukei_pukei = Monster.find_or_create_by(name: 'Pukei-Pukei', size: :large)
-radobaan = Monster.find_or_create_by(name: 'Radobaan', size: :large)
-rathalos = Monster.find_or_create_by(name: 'Rathalos', size: :large)
-azure_rathalos = Monster.find_or_create_by(name: 'Azure Rathalos', size: :large)
-rathian = Monster.find_or_create_by(name: 'Rathian', size: :large)
-pink_rathian = Monster.find_or_create_by(name: 'Pink Rathian', size: :large)
-tobi_kadachi = Monster.find_or_create_by(name: 'Tobi-Kadachi', size: :large)
-zinogre = Monster.find_or_create_by(name: 'Zinogre', size: :large)
+anjanath = Monster.find_or_create_by(name: 'Anjanath', size: :large, key: monster_names.key('Anjanath'))
+banbaro = Monster.find_or_create_by(name: 'Banbaro', size: :large, key: monster_names.key('Banbaro'))
+barioth = Monster.find_or_create_by(name: 'Barioth', size: :large, key: monster_names.key('Barioth'))
+barroth = Monster.find_or_create_by(name: 'Barroth', size: :large, key: monster_names.key('Barroth'))
+diablos = Monster.find_or_create_by(name: 'Diablos', size: :large, key: monster_names.key('Diablos'))
+black_diablos = Monster.find_or_create_by(name: 'Black Diablos', size: :large, key: monster_names.key('Black Diablos'))
+great_girros = Monster.find_or_create_by(name: 'Great Girros', size: :large, key: monster_names.key('Great Girros'))
+great_jagras = Monster.find_or_create_by(name: 'Great Jagras', size: :large, key: monster_names.key('Great Jagras'))
+halloween = Monster.find_or_create_by(name: 'Halloween', size: :large, key: monster_names.key('Halloween'))
+jyuratodus = Monster.find_or_create_by(name: 'Jyuratodus', size: :large, key: monster_names.key('Jyuratodus'))
+kulu_ya_ku = Monster.find_or_create_by(name: 'Kulu-Ya-Ku', size: :large, key: monster_names.key('Kulu-Ya-Ku'))
+legiana = Monster.find_or_create_by(name: 'Legiana', size: :large, key: monster_names.key('Legiana'))
+paolumu = Monster.find_or_create_by(name: 'Paolumu', size: :large, key: monster_names.key('Paolumu'))
+pukei_pukei = Monster.find_or_create_by(name: 'Pukei-Pukei', size: :large, key: monster_names.key('Pukei-Pukei'))
+radobaan = Monster.find_or_create_by(name: 'Radobaan', size: :large, key: monster_names.key('Radobaan'))
+rathalos = Monster.find_or_create_by(name: 'Rathalos', size: :large, key: monster_names.key('Rathalos'))
+azure_rathalos = Monster.find_or_create_by(name: 'Azure Rathalos', size: :large, key: monster_names.key('Azure Rathalos'))
+rathian = Monster.find_or_create_by(name: 'Rathian', size: :large, key: monster_names.key('Rathian'))
+pink_rathian = Monster.find_or_create_by(name: 'Pink Rathian', size: :large, key: monster_names.key('Pink Rathian'))
+tobi_kadachi = Monster.find_or_create_by(name: 'Tobi-Kadachi', size: :large, key: monster_names.key('Tobi-Kadachi'))
+zinogre = Monster.find_or_create_by(name: 'Zinogre', size: :large, key: monster_names.key('Zinogre'))
 
 monster = {
   'anja': anjanath,
@@ -337,6 +374,1594 @@ monster_terrain = [
 
 monster_terrain.each do |mon, *list|
   mon.terrains = list
+end
+
+monster_weapon_map = {
+  'g-jagr': {
+    'biome': [ 'forest', 'desert', 'swamp' ],
+    'weakness': [ 'fire' ],
+    'poison': 3,
+    'paralysis': 3,
+    'stun': 3,
+    'sleep': 3,
+    'hp': {
+      '5': 6450,
+      '6': 10520,
+      '7': 17560,
+      '8': 32080,
+      '9': 67780,
+      '10': 139115
+    },
+    'raid-hp': {
+      '4': 7900,
+      '5': 13935,
+      '6': 24665,
+      '7': 41340
+    },
+    'physiology': {
+      'head': [ 130, 135, 130, 1, [ 'c', 'e' ] ],
+      'body': [ 90, 100, 70 ],
+      'stomach': [ 140, 145, 140, 1 ],
+      'forelegs': [ 120, 110, 90, 1, [ 'b', 'd', 'f' ] ],
+      'hindlegs': [ 100, 90, 70 ],
+      'tail': [ 100, 90, 70 ]
+    }
+  },
+  'kulu': {
+    'biome': [ 'forest', 'desert', 'swamp' ],
+    'weakness': [ 'water' ],
+    'poison': 2,
+    'paralysis': 3,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 6150,
+      '6': 10040,
+      '7': 16740,
+      '8': 30580,
+      '9': 64560,
+      '10': 132480
+    },
+    'raid-hp': {
+      '4': 7520,
+      '5': 13270,
+      '6': 23490,
+      '7': 39370
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'b', 'd', 'f' ] ],
+      'body': [ 90, 90, 70 ],
+      'forelegs': [ 130, 135, 130, 1, [ 'c', 'e' ] ],
+      'hindlegs': [ 90, 90, 70 ],
+      'tail': [ 110, 110, 70 ],
+      'rock': [ 10, 10, 10 ]
+    }
+  },
+  'puke': {
+    'biome': [ 'forest', 'desert', 'swamp' ],
+    'weakness': [ 'thunder' ],
+    'poison': 1,
+    'paralysis': 3,
+    'stun': 2,
+    'sleep': 3,
+    'hp': {
+      '5': 6150,
+      '6': 10040,
+      '7': 16740,
+      '8': 30580,
+      '9': 64560,
+      '10': 132480
+    },
+    'raid-hp': {
+      '4': 7520,
+      '5': 13270,
+      '6': 23490,
+      '7': 39370
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'c', 'e' ] ],
+      'back': [ 90, 100, 70, 1 ],
+      'wings': [ 110, 110, 95, 1, [ 'd' ] ],
+      'legs': [ 100, 110, 80 ],
+      'tail': [ 120, 110, 90, 2, [ 'b', 'f' ] ]
+    }
+  },
+  'barr': {
+    'biome': [ 'desert', 'swamp' ],
+    'weakness': [ 'fire' ],
+    'poison': 3,
+    'paralysis': 2,
+    'stun': 1,
+    'sleep': 2,
+    'hp': {
+      '5': 4300,
+      '6': 7720,
+      '7': 12680,
+      '8': 23560,
+      '9': 49950,
+      '10': 99160
+    },
+    'raid-hp': {
+      '4': 5265,
+      '5': 9290,
+      '6': 16440,
+      '7': 27560
+    },
+    'physiology': {
+      'head': [ 80, 110, 55, 3, [ 'c', 'd' ] ],
+      'body': [ 100, 100, 80 ],
+      'forelegs': [ 140, 145, 140, 1, [ 'e' ] ],
+      'hindlegs': [ 90, 100, 65, 1 ],
+      'tail': [ 120, 100, 80, 2, [ 'b', 'f' ] ],
+      'mud': [ 30 ],
+      'water-mud': 1
+    }
+  },
+  'g-girr': {
+    'biome': [ 'forest', 'swamp' ],
+    'weakness': [ 'water' ],
+    'poison': 2,
+    'paralysis': 1,
+    'stun': 2,
+    'sleep': 3,
+    'hp': {
+      '5': 6150,
+      '6': 11000,
+      '7': 18150,
+      '8': 33680,
+      '9': 71340,
+      '10': 141680
+    },
+    'raid-hp': {
+      '4': 7520,
+      '5': 13270,
+      '6': 23490,
+      '7': 39370
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'c', 'e', 'f' ] ],
+      'body': [ 90, 100, 70 ],
+      'forelegs': [ 110, 110, 90, 1, [ 'd' ] ],
+      'hindlegs': [ 100, 100, 80 ],
+      'tail': [ 120, 110, 90, 2, [ 'b' ] ]
+    }
+  },
+  'tobi': {
+    'biome': [ 'forest', 'swamp' ],
+    'weakness': [ 'water' ],
+    'poison': 3,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 5850,
+      '6': 10450,
+      '7': 18680,
+      '8': 31960,
+      '9': 74240,
+      '10': 143340
+    },
+    'raid-hp': {
+      '4': 7145,
+      '5': 12610,
+      '6': 22315,
+      '7': 37400
+    },
+    'physiology': {
+      'head': [ 130, 135, 130, 1, [ 'b' ] ],
+      'body': [ 100, 110, 80 ],
+      'back': [ 100, 100, 95, 1 ],
+      'forelegs': [ 90, 90, 55, 1, [ 'c', 'd' ] ],
+      'hindlegs': [ 90, 90, 55 ],
+      'tail': [ 140, 140, 140, 1, [ 'e', 'f' ] ]
+    }
+  },
+  'paol': {
+    'biome': [ 'desert', 'swamp' ],
+    'weakness': [ 'fire' ],
+    'poison': 2,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 6960,
+      '6': 12330,
+      '7': 19040,
+      '8': 38600,
+      '9': 74920,
+      '10': 148760
+    },
+    'raid-hp': {
+      '4': 7900,
+      '5': 13935,
+      '6': 24665,
+      '7': 41340
+    },
+    'physiology': {
+      'head': [ 130, 130, 95 ],
+      'neck-pouch': [ 140, 140, 130, 1 ],
+      'body': [ 100, 110, 80 ],
+      'back': [ 100, 110, 80, 1 ],
+      'wings': [ 100, 100, 130, 1, [ 'b', 'd' ] ],
+      'legs': [ 80, 90, 55 ],
+      'tail': [ 90, 80, 55, 1, [ 'c', 'e', 'f' ] ]
+    }
+  },
+  'jyur': {
+    'biome': [ 'swamp' ],
+    'weakness': [ 'thunder' ],
+    'poison': 2,
+    'paralysis': 2,
+    'stun': 3,
+    'sleep': 1,
+    'hp': {
+      '5': 4590,
+      '6': 8200,
+      '7': 13760,
+      '8': 25720,
+      '9': 54680,
+      '10': 105600
+    },
+    'raid-hp': {
+      '4': 5265,
+      '5': 9290,
+      '6': 16440,
+      '7': 27560
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'b', 'f' ] ],
+      'neck': [ 110, 120, 90 ],
+      'body': [ 100, 110, 80, 1, [ 'c', 'd' ] ],
+      'back': [ 80, 90, 65 ],
+      'fins': [ 80, 80, 95 ],
+      'hindlegs': [ 90, 100, 70, 1 ],
+      'tail': [ 135, 130, 130, 1, [ 'e' ] ],
+      'mud': [ 30 ],
+      'water-mud': 1
+    }
+  },
+  'anja': {
+    'biome': [ 'forest', 'desert' ],
+    'weakness': [ 'water' ],
+    'poison': 2,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 6960,
+      '6': 12200,
+      '7': 20800,
+      '8': 39040,
+      '9': 83240,
+      '10': 156880
+    },
+    'raid-hp': {
+      '5': 13965,
+      '6': 24400,
+      '7': 41650
+    },
+    'physiology': {
+      'head': [ 130, 135, 130, 1, [ 'c' ] ],
+      'snout': [ 140, 140, 145 ],
+      'neck': [ 90, 90, 65 ],
+      'body': [ 90, 90, 80 ],
+      'wings': [ 140, 110, 145 ],
+      'hindlegs': [ 90, 100, 70, 1, [ 'd' ] ],
+      'tail': [ 130, 120, 95, 2, [ 'b', 'e', 'f' ] ]
+    }
+  },
+  'rathi': {
+    'biome': [ 'forest', 'desert' ],
+    'weakness': [ 'thunder', 'dragon' ],
+    'poison': 1,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 6850,
+      '6': 11920,
+      '7': 20400,
+      '8': 38240,
+      '9': 81520,
+      '10': 153640
+    },
+    'raid-hp': {
+      '5': 13680,
+      '6': 23905,
+      '7': 40800
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'd' ] ],
+      'body': [ 90, 100, 70 ],
+      'back': [ 90, 100, 70, 1 ],
+      'wings': [ 130, 130, 135, 1, [ 'b' ] ],
+      'legs': [ 90, 90, 70 ],
+      'tail': [ 120, 110, 90, 2, [ 'c', 'e', 'f' ] ],
+      'tail-tip': [ 120, 120, 95 ]
+    }
+  },
+  'p-rathi': {
+    'biome': [ 'forest' ],
+    'weakness': [ 'thunder', 'dragon' ],
+    'poison': 1,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 8120,
+      '6': 13140,
+      '7': 23000,
+      '8': 42920,
+      '9': 91720,
+      '10': 169150
+    },
+    'raid-hp': {},
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'd' ] ],
+      'body': [ 90, 100, 70 ],
+      'back': [ 90, 100, 70, 1 ],
+      'wings': [ 130, 130, 135, 1, [ 'b' ] ],
+      'legs': [ 90, 90, 70 ],
+      'tail': [ 130, 120, 100, 2, [ 'c', 'e', 'f' ] ],
+      'tail-tip': [ 130, 130, 130 ]
+    }
+  },
+  'legi': {
+    'biome': [ 'swamp' ],
+    'weakness': [ 'fire' ],
+    'poison': 3,
+    'poison-dmg': 2,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 7440,
+      '6': 13590,
+      '7': 23840,
+      '8': 45080,
+      '9': 96520,
+      '10': 174880
+    },
+    'raid-hp': {
+      '5': 13965,
+      '6': 24400,
+      '7': 41650,
+      '8': 78105
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1 ],
+      'body': [ 80, 90, 65 ],
+      'back': [ 80, 90, 65, 1 ],
+      'wings': [ 130, 130, 140, 1, [ 'b', 'c', 'd', 'f' ] ],
+      'legs': [ 90, 100, 70 ],
+      'tail': [ 120, 110, 90, 1, [ 'e' ] ]
+    }
+  },
+  'diab': {
+    'biome': [ 'desert' ],
+    'weakness': [ 'ice', 'dragon' ],
+    'poison': 2,
+    'paralysis': 3,
+    'stun': 1,
+    'sleep': 2,
+    'hp': {
+      '5': 6840,
+      '6': 12480,
+      '7': 21920,
+      '8': 41420,
+      '9': 88670,
+      '10': 160600
+    },
+    'raid-hp': {
+      '5': 12825,
+      '6': 22410,
+      '7': 38250,
+      '8': 71730
+    },
+    'physiology': {
+      'head': [ 110, 135, 90 ],
+      'horns': [ 80, 100, 65, 1, [ 'f' ] ],
+      'body': [ 140, 145, 90 ],
+      'back': [ 80, 100, 65, 1, [ 'c', 'd', 'e' ] ],
+      'wings': [ 110, 90, 135 ],
+      'legs': [ 100, 100, 80 ],
+      'tail': [ 130, 80, 80, 2, [ 'b', 'e' ] ],
+      'tail-tip': [ 80, 90, 55 ]
+    }
+  },
+  'b-diab': {
+    'biome': [ 'desert' ],
+    'weakness': [ 'ice' ],
+    'poison': 2,
+    'paralysis': 3,
+    'stun': 1,
+    'sleep': 2,
+    'hp': {
+      '5': 9800,
+      '6': 16000,
+      '7': 29000,
+      '8': 55250,
+      '9': 112080,
+      '10': 187660
+    },
+    'raid-hp': {},
+    'physiology': {
+      'head': [ 105, 130, 80 ],
+      'horns': [ 75, 95, 60, 1, [ 'f' ] ],
+      'body': [ 135, 140, 85 ],
+      'back': [ 75, 95, 60, 1, [ 'c', 'd', 'e' ] ],
+      'wings': [ 105, 85, 130 ],
+      'legs': [ 95, 95, 75 ],
+      'tail': [ 130, 75, 75, 2, [ 'b', 'e' ] ],
+      'tail-tip': [ 75, 85, 50 ]
+    }
+  },
+  'ratha': {
+    'biome': [ 'forest' ],
+    'weakness': [ 'thunder', 'dragon' ],
+    'poison': 1,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 8150,
+      '6': 13160,
+      '7': 23120,
+      '8': 43720,
+      '9': 93600,
+      '10': 169520
+    },
+    'raid-hp': {
+      '5': 13540,
+      '6': 23655,
+      '7': 40375,
+      '8': 75715
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'd' ] ],
+      'body': [ 90, 100, 70 ],
+      'back': [ 90, 100, 70, 1, [ 'c' ] ],
+      'wings': [ 130, 130, 135, 1 ],
+      'legs': [ 90, 90, 70 ],
+      'tail': [ 120, 110, 90, 2, [ 'b', 'c', 'e', 'f' ] ],
+      'tail-tip': [ 120, 120, 95 ]
+    }
+  },
+  'a-ratha': {
+    'biome': [ 'forest' ],
+    'weakness': [ 'ice', 'dragon' ],
+    'poison': 1,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 9000,
+      '6': 14580,
+      '7': 25870,
+      '8': 49020,
+      '9': 105300,
+      '10': 190150
+    },
+    'raid-hp': {},
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'd' ] ],
+      'body': [ 90, 100, 70 ],
+      'back': [ 90, 100, 70, 1, [ 'c' ] ],
+      'wings': [ 130, 130, 135, 1 ],
+      'legs': [ 80, 80, 65 ],
+      'tail': [ 110, 100, 80, 2, [ 'b', 'c', 'e', 'f' ] ],
+      'tail-tip': [ 140, 135, 135 ]
+    }
+  },
+  'rado': {
+    'biome': [ 'desert', 'swamp' ],
+    'weakness': [ 'ice', 'dragon' ],
+    'poison': 3,
+    'paralysis': 2,
+    'stun': 1,
+    'sleep': 2,
+    'hp': {
+      '5': 5840,
+      '6': 10440,
+      '7': 17200,
+      '8': 31940,
+      '9': 67760,
+      '10': 134600
+    },
+    'raid-hp': {
+      '4': 7145,
+      '5': 12610,
+      '6': 22315,
+      '7': 37400,
+      '8': 75715
+    },
+    'physiology': {
+      'head': [ 70, 100, 55, 1, [ 'c', 'f' ] ],
+      '*head': [ 140, 145, 140 ],
+      'neck': [ 90, 90, 70 ],
+      'body': [ 70, 90, 55, 1, [ 'e' ] ],
+      '*body': [ 125, 130, 95 ],
+      'hindlegs': [ 70, 90, 55, 1, [ 'd' ] ],
+      '*hindlegs': [ 130, 125, 130 ],
+      'tail': [ 120, 110, 90, 2, [ 'b' ] ]
+    }
+  },
+  'banb': {
+    'biome': [ 'forest', 'swamp' ],
+    'weakness': [ 'fire', 'dragon' ],
+    'poison': 2,
+    'paralysis': 2,
+    'stun': 1,
+    'sleep': 2,
+    'hp': {
+      '5': 4280,
+      '6': 7600,
+      '7': 11760,
+      '8': 23880,
+      '9': 46360,
+      '10': 92080
+    },
+    'raid-hp': {
+      '4': 4890,
+      '5': 8625,
+      '6': 15270,
+      '7': 25590
+    },
+    'physiology': {
+      'horns': [ 80, 100, 65, 1, [ 'e', 'f' ] ],
+      'head': [ 140, 145, 140 ],
+      'neck': [ 90, 100, 70 ],
+      'body': [ 80, 90, 65 ],
+      'hindlegs': [ 90, 100, 70, 1, [ 'd' ] ],
+      '*hindlegs': [ 130, 135, 130 ],
+      'tail': [ 100, 80, 65, 2, [ 'b', 'c' ] ]
+    }
+  },
+  'bari': {
+    'biome': [ 'forest' ],
+    'weakness': [ 'fire' ],
+    'poison': 2,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 6240,
+      '6': 10920,
+      '7': 18680,
+      '8': 35040,
+      '9': 74720,
+      '10': 140840
+    },
+    'raid-hp': {
+      '5': 12540,
+      '6': 21910,
+      '7': 37400,
+      '8': 70135
+    },
+    'physiology': {
+      'head': [ 140, 145, 140, 1, [ 'e' ] ],
+      'body': [ 100, 110, 80 ],
+      'back': [ 100, 110, 80 ],
+      'wings': [ 110, 135, 80 ],
+      'spikes': [ 130, 135, 130, 1, [ 'c', 'd' ] ],
+      'hindlegs': [ 90, 100, 70 ],
+      'tail': [ 130, 90, 130, 2, [ 'b', 'f' ] ],
+      'tail-tip': [ 145, 130, 130 ]
+    }
+  },
+  'zino': {
+    'biome': [ 'forest', 'swamp' ],
+    'weakness': [ 'ice' ],
+    'poison': 2,
+    'paralysis': 2,
+    'stun': 2,
+    'sleep': 2,
+    'hp': {
+      '5': 7480
+    },
+    'raid-hp': {
+      '5': 14960,
+      '6': 26145,
+      '7': 44625,
+      '8': 83685
+    },
+    'physiology': {
+      'horns': [ 130, 135, 130, 1, [ 'e' ] ],
+      '+horns': [ 140, 145, 140 ],
+      'neck': [ 110, 110, 90 ],
+      '+neck': [ 120, 120, 100 ],
+      'body': [ 90, 100, 70 ],
+      '+body': [ 80, 90, 65 ],
+      'back': [ 80, 90, 65, 1, [ 'c' ] ],
+      '+back': [ 90, 100, 70 ],
+      'forelegs': [ 110, 120, 90, 1, [ 'd' ] ],
+      '+forelegs': [ 120, 130, 95 ],
+      'hindlegs': [ 90, 100, 70 ],
+      '+hindlegs': [ 80, 90, 65 ],
+      'tail': [ 120, 110, 90, 2, [ 'b', 'f' ] ],
+      '+tail': [ 130, 120, 95 ]
+    }
+  }
+}
+
+mon_info = {
+  alloy: {
+    id: 14,
+    unlock: 1,
+    starter: 1,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "common-atk",
+    },
+    ammo: [
+      ["normal", 5],
+      ["pierce", 4],
+    ],
+    arrow: [
+      ["rapid", 1],
+      ["rapid", 2],
+      ["rapid", 3],
+      ["rapid", 4],
+    ],
+  },
+  bone: {
+    id: 23,
+    unlock: 3,
+    evtOnly: 1,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "common-atk",
+    },
+    ammo: [
+      ["normal", 5],
+      ["sticky", 2],
+    ],
+    arrow: [
+      ["spread", 1],
+      ["spread", 2],
+      ["rapid", 3],
+      ["rapid", 4],
+    ],
+  },
+  leather: {
+    id: 0,
+    unlock: 1,
+    starter: 1,
+  },
+  "g-jagr": {
+    id: 1,
+    unlock: 1,
+    eff: {
+      all: "water",
+    },
+    water: {
+      base: "g-jagr-atk",
+      ele: "g-jagr-ele",
+    },
+    ammo: [
+      ["water", 6],
+      ["slicing-water", 2],
+    ],
+  },
+  kulu: {
+    id: 2,
+    unlock: 1,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "common-atk",
+      crit: "common-crit",
+    },
+    arrow: [
+      ["rapid", 1],
+      ["rapid", 2],
+      ["rapid", 3],
+      ["pierce", 4],
+    ],
+  },
+  puke: {
+    id: 3,
+    unlock: 1,
+    eff: {
+      all: "poison",
+    },
+    poison: {
+      base: "common-atk",
+      ele: "common-ele",
+    },
+    arrow: [
+      ["rapid", 1],
+      ["rapid", 2],
+      ["rapid", 3],
+      ["spread", 4],
+    ],
+    bottle: "poison",
+  },
+  barr: {
+    id: 4,
+    unlock: 1,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "barr-atk",
+    },
+    ammo: [
+      ["normal", 4],
+      ["spread", 3],
+    ],
+  },
+  "g-girr": {
+    id: 5,
+    unlock: 2,
+    eff: {
+      all: "paralysis",
+    },
+    paralysis: {
+      base: "common-atk",
+      ele: "common-ele",
+    },
+  },
+  tobi: {
+    id: 6,
+    unlock: 2,
+    eff: {
+      all: "thunder",
+    },
+    thunder: {
+      base: "tobi-atk",
+      ele: "tobi-ele",
+    },
+    ammo: [
+      ["thunder", 5],
+      ["slicing-thunder", 3],
+    ],
+    arrow: [
+      ["pierce", 1],
+      ["pierce", 2],
+      ["pierce", 3],
+      ["pierce", 4],
+    ],
+  },
+  paol: {
+    id: 7,
+    unlock: 3,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "paol-atk",
+    },
+    ammo: [
+      ["normal", 5],
+      ["spread", 4],
+      ["pierce", 4],
+    ],
+  },
+  jyur: {
+    id: 8,
+    unlock: 3,
+    eff: {
+      all: "water",
+    },
+    water: {
+      base: "tobi-atk",
+      ele: "tobi-ele",
+    },
+    ammo: [
+      ["water", 5],
+      ["spread-water", 4],
+      ["sticky-water", 2],
+    ],
+    arrow: [
+      ["spread", 1],
+      ["spread", 2],
+      ["rapid", 3],
+      ["rapid", 4],
+    ],
+  },
+  anja: {
+    id: 9,
+    unlock: 4,
+    eff: {
+      all: "fire",
+    },
+    fire: {
+      base: "tobi-atk",
+      ele: "tobi-ele",
+    },
+    ammo: [
+      ["fire", 6],
+      ["sticky-fire", 3],
+    ],
+    arrow: [
+      ["spread", 1],
+      ["spread", 2],
+      ["spread", 3],
+      ["spread", 4],
+    ],
+  },
+  rathi: {
+    id: 10,
+    unlock: 4,
+    eff: {
+      all: "poison",
+    },
+    poison: {
+      base: "rathi-atk",
+      ele: "rathi-ele",
+    },
+    arrow: [
+      ["rapid", 1],
+      ["rapid", 2],
+      ["spread", 3],
+      ["spread", 4],
+    ],
+    bottle: "poison",
+  },
+  legi: {
+    id: 11,
+    unlock: 5,
+    eff: {
+      all: "ice",
+    },
+    ice: {
+      base: "legi-atk",
+      ele: "legi-ele",
+    },
+    ammo: [
+      ["ice", 5],
+      ["spread-ice", 4],
+      ["slicing-ice", 3],
+    ],
+    arrow: [
+      ["pierce", 1],
+      ["pierce", 2],
+      ["rapid", 3],
+      ["rapid", 4],
+    ],
+  },
+  diab: {
+    id: 12,
+    unlock: 5,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "diab-atk",
+    },
+    arrow: [
+      ["spread", 1],
+      ["rapid", 2],
+      ["spread", 3],
+      ["rapid", 4],
+    ],
+  },
+  ratha: {
+    id: 13,
+    unlock: 5,
+    eff: {
+      all: "fire",
+    },
+    fire: {
+      base: "legi-atk",
+      ele: "legi-ele",
+    },
+    ammo: [
+      ["fire", 5],
+      ["piercing-fire", 4],
+      ["slicing-fire", 3],
+    ],
+    arrow: [
+      ["rapid", 1],
+      ["rapid", 2],
+      ["pierce", 3],
+      ["pierce", 4],
+    ],
+  },
+  "p-rathi": {
+    id: 16,
+    unlock: 5,
+    eventOnly: 1,
+    eff: {
+      "shield-sword": "poison",
+      "long-sword": "poison",
+      bow: "dragon",
+      hammer: "dragon",
+      "dual-blades": "dragon",
+    },
+    poison: {
+      base: "p-rathi-atk",
+      ele: "p-rathi-ele",
+    },
+    dragon: {
+      base: "tobi-atk",
+      ele: "tobi-ele",
+    },
+    arrow: [
+      ["pierce", 2],
+      ["pierce", 3],
+      ["spread", 3],
+      ["spread", 4],
+    ],
+  },
+  "b-diab": {
+    id: 15,
+    unlock: 5,
+    eventOnly: 1,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "b-diab-atk",
+      crit: "b-diab-crit",
+    },
+    arrow: [
+      ["pierce", 1],
+      ["pierce", 1],
+      ["pierce", 4],
+      ["pierce", 4],
+    ],
+  },
+  "a-ratha": {
+    id: 17,
+    unlock: 5,
+    eventOnly: 1,
+    eff: {
+      all: "fire",
+    },
+    fire: {
+      base: "a-ratha-atk",
+      ele: "a-ratha-ele",
+    },
+    ammo: [
+      ["fire", 5],
+      ["piercing-fire", 4],
+      ["sticky-fire", 2],
+    ],
+    arrow: [
+      ["spread", 2],
+      ["spread", 3],
+      ["rapid", 3],
+      ["rapid", 4],
+    ],
+  },
+  zino: {
+    id: 19,
+    unlock: 5,
+    eventOnly: 1,
+    eff: {
+      all: "thunder",
+    },
+    thunder: {
+      base: "legi-atk",
+      ele: "legi-ele",
+    },
+    ammo: [
+      ["thunder", 5],
+      ["piercing-thunder", 4],
+      ["sticky-thunder", 2],
+    ],
+    arrow: [
+      ["pierce", 1],
+      ["pierce", 2],
+      ["rapid", 3],
+      ["rapid", 4],
+    ],
+  },
+  bari: {
+    id: 20,
+    unlock: 4,
+    eff: {
+      all: "ice",
+    },
+    ice: {
+      base: "bari-atk",
+      ele: "tobi-ele",
+      crit: "bari-crit",
+    },
+    ammo: [
+      ["spread-ice", 3],
+      ["piercing-ice", 3],
+    ],
+    arrow: [
+      ["rapid", 1],
+      ["rapid", 2],
+      ["spread", 3],
+      ["spread", 4],
+    ],
+  },
+  banb: {
+    id: 21,
+    unlock: 3,
+    eff: {
+      all: "white",
+    },
+    white: {
+      base: "paol-atk",
+    },
+    ammo: [
+      ["normal", 5],
+      ["spread", 4],
+      ["sticky", 2],
+    ],
+    arrow: [
+      ["pierce", 1],
+      ["spread", 2],
+      ["pierce", 3],
+      ["spread", 4],
+    ],
+  },
+  rado: {
+    id: 22,
+    unlock: 2,
+    eff: {
+      all: "sleep",
+    },
+    sleep: {
+      base: "common-atk",
+      ele: "common-ele",
+    },
+  },
+  halloween: {
+    id: 18,
+    evtOnly: 1,
+    unlock: 2,
+  },
+  "ny-24": {
+    id: 24,
+    evtOnly: 1,
+    unlock: 4,
+    matUntil: [4, 5],
+  },
+}
+
+all = {
+  forgeWeaponCost: {
+    1 => [10, 2, 2],
+    2 => [300, 3, 1, 1],
+    3 => [600, 5, 2, 3],
+    4 => [900, 4, 2, 2, 8],
+    5 => [1500, 6, 2, 2, 10],
+  },
+  forgeArmorCost: {
+    1 => [10, 2, 2],
+    2 => [300, 2, 1, 1],
+    3 => [600, 4, 2, 2],
+    4 => [900, 3, 1, 2, 6],
+    5 => [1500, 4, 2, 2, 7],
+  },
+  weaponCost: {
+    1 => {
+      1 => [10, 2, 2],
+      2 => [20, 2, 2],
+      3 => [30, 2, 1],
+      4 => [40, 2, 2],
+      5 => [50, 2, 2],
+    },
+    2 => {
+      1 => [300, 3, 1, 1],
+      2 => [100, 3, 4, 4],
+      3 => [150, 3, 3, 3],
+      4 => [200, 3, 4, 4],
+      5 => [250, 3, 1, 3],
+    },
+    3 => {
+      1 => [600, 5, 2, 3],
+      2 => [200, 5, 12, 8],
+      3 => [300, 5, 6, 5],
+      4 => [400, 5, 12, 8],
+      5 => [500, 5, 2, 6],
+    },
+    4 => {
+      1 => [900, 8, 4, 2, 8],
+      2 => [300, 8, 24, 16],
+      3 => [450, 8, 9, 8],
+      4 => [600, 8, 24, 16],
+      5 => [750, 8, 3, 12],
+    },
+    5 => {
+      1 => [1500, 12, 6, 4, 10],
+      2 => [500, 12, 32, 24],
+      3 => [750, 12, 12, 15],
+      4 => [1000.0, 12, 32, 24],
+      5 => [1250, 12, 4, 16],
+    },
+    6 => {
+      1 => [3000.0, 18, 6, 2, 1],
+      2 => [1000.0, 18, 44, 32, 4],
+      3 => [1500, 18, 20, 15, 20],
+      4 => [2000.0, 18, 44, 32, 4],
+      5 => [2500, 18, 20, 7, 20],
+    },
+    7 => {
+      1 => [6000.0, 24, 12, 3, 3],
+      2 => [2000.0, 24, 51, 42, 6],
+      3 => [3000.0, 24, 30, 20, 31],
+      4 => [4000.0, 24, 51, 42, 6],
+      5 => [5000.0, 24, 30, 11, 31],
+    },
+    8 => {
+      1 => [12000.0, 5, 4, 5],
+      2 => [4000.0, 40, 64, 53, 4],
+      3 => [6000.0, 30, 4, 40, 41],
+      4 => [8000.0, 20, 64, 53, 4],
+      5 => [10000.0, 100, 4, 17, 41],
+    },
+    9 => {
+      1 => [30000.0, 10, 6, 7],
+      2 => [10000.0, 50, 73, 61, 6],
+      3 => [15000.0, 40, 6, 49, 52],
+      4 => [20000.0, 30, 73, 61, 6],
+      5 => [25000.0, 200, 6, 21, 52],
+    },
+    10 => {
+      1 => [75000.0, 20, 10, 9],
+      2 => [25000.0, 60, 85, 73, 8],
+      3 => [37500, 50, 20, 59, 63],
+      4 => [50000.0, 40, 85, 73, 8],
+      5 => [62500, 300, 30, 31, 63],
+    },
+  },
+  armorCost: {
+    1 => {
+      1 => [10, 2, 2],
+      2 => [20, 2, 2],
+      3 => [30, 2, 1],
+      4 => [40, 2, 2],
+      5 => [50, 2, 2],
+    },
+    2 => {
+      1 => [300, 2, 1, 1],
+      2 => [100, 2, 4, 3],
+      3 => [150, 2, 2, 2],
+      4 => [200, 2, 4, 3],
+      5 => [250, 2, 1, 2],
+    },
+    3 => {
+      1 => [600, 4, 2, 2],
+      2 => [200, 4, 9, 6],
+      3 => [300, 4, 3, 4],
+      4 => [400, 4, 9, 6],
+      5 => [500, 4, 1, 4],
+    },
+    4 => {
+      1 => [900, 6, 2, 2, 6],
+      2 => [300, 6, 17, 11],
+      3 => [450, 6, 5, 6],
+      4 => [600, 6, 17, 11],
+      5 => [750, 6, 2, 8],
+    },
+    5 => {
+      1 => [1500, 8, 3, 3, 7],
+      2 => [500, 8, 22, 17],
+      3 => [750, 8, 6, 11],
+      4 => [1000.0, 8, 22, 17],
+      5 => [1250, 8, 3, 11],
+    },
+    6 => {
+      1 => [3000.0, 13, 3, 2, 1],
+      2 => [1000.0, 13, 31, 22, 2],
+      3 => [1500, 13, 10, 8, 14],
+      4 => [2000.0, 13, 31, 22, 2],
+      5 => [2500, 13, 14, 5, 14],
+    },
+    7 => {
+      1 => [6000.0, 17, 6, 2, 3],
+      2 => [2000.0, 17, 36, 29, 3],
+      3 => [3000.0, 17, 15, 10, 22],
+      4 => [4000.0, 17, 36, 29, 3],
+      5 => [5000.0, 17, 21, 8, 22],
+    },
+    8 => {
+      1 => [12000.0, 3, 2, 5],
+      2 => [4000.0, 20, 45, 37, 2],
+      3 => [6000.0, 15, 2, 28, 29],
+      4 => [8000.0, 10, 45, 37, 2],
+      5 => [10000.0, 70, 2, 12, 29],
+    },
+    9 => {
+      1 => [30000.0, 5, 3, 7],
+      2 => [10000.0, 25, 51, 43, 3],
+      3 => [15000.0, 20, 3, 34, 36],
+      4 => [20000.0, 15, 51, 43, 3],
+      5 => [25000.0, 140, 3, 15, 36],
+    },
+    10 => {
+      1 => [75000.0, 10, 5, 9],
+      2 => [25000.0, 30, 60, 51, 4],
+      3 => [37500, 25, 10, 41, 44],
+      4 => [50000.0, 20, 60, 51, 4],
+      5 => [62500, 210, 15, 22, 44],
+    },
+  },
+  itemType: {
+    alloy: ["b", "g", "2", "g-jagr"],
+    bone: ["c", "g", "1", "g-jagr"],
+    leather: ["b", "g", "2", "g-jagr"],
+    "g-jagr": ["b", "b", "2", "jyur"],
+    kulu: ["c", "g", "1", "g-jagr"],
+    puke: ["a", "e", "2", "rathi"],
+    barr: ["a", "g", "1", "diab"],
+    "g-girr": ["b", "d", "2", "tobi"],
+    tobi: ["c", "f", "1", "g-girr"],
+    paol: ["a", "g", "2", "legi"],
+    jyur: ["a", "b", "1", "g-jagr"],
+    anja: ["c", "a", "1", "ratha"],
+    rathi: ["c", "e", "1", "puke"],
+    legi: ["b", "c", "2", "paol"],
+    diab: ["a", "g", "1", "barr"],
+    ratha: ["b", "a", "2", "anja"],
+    "b-diab": ["a", "g", "1", "diab"],
+    "p-rathi": ["c", "e", "1", "rathi"],
+    "a-ratha": ["b", "a", "2", "ratha"],
+    halloween: ["c", "a", "1", "g-jagr"],
+    rado: ["c", "h", "1", "g-girr"],
+    banb: ["c", "g", "1", "barr"],
+    bari: ["b", "c", "2", "banb"],
+    zino: ["a", "f", "2", "tobi"],
+  },
+  costType: {
+    1 => {
+      1 => ["z", "a", "ha"],
+      2 => ["z", "a", "j"],
+      3 => ["z", "a", "b"],
+      4 => ["z", "a", "j"],
+      5 => ["z", "a", "ha"],
+    },
+    2 => {
+      1 => ["z", "a", "c", "hb"],
+      2 => ["z", "a", "j", "ha"],
+      3 => ["z", "a", "b", "g"],
+      4 => ["z", "a", "j", "ha"],
+      5 => ["z", "a", "hc", "f"],
+    },
+    3 => {
+      1 => ["z", "a", "c", "hb"],
+      2 => ["z", "a", "j", "ha"],
+      3 => ["z", "a", "b", "g"],
+      4 => ["z", "a", "j", "ha"],
+      5 => ["z", "a", "hc", "f"],
+    },
+    4 => {
+      1 => ["z", "a", "c", "d", "hb"],
+      2 => ["z", "a", "j", "ha"],
+      3 => ["z", "a", "b", "g"],
+      4 => ["z", "a", "j", "ha"],
+      5 => ["z", "a", "hc", "f"],
+    },
+    5 => {
+      1 => ["z", "a", "c", "d", "hb"],
+      2 => ["z", "a", "j", "ha"],
+      3 => ["z", "a", "b", "g"],
+      4 => ["z", "a", "j", "ha"],
+      5 => ["z", "a", "hc", "f"],
+    },
+    6 => {
+      1 => ["z", "a", "d", "e", "k"],
+      2 => ["z", "a", "j", "ha", "ib"],
+      3 => ["z", "a", "b", "c", "g"],
+      4 => ["z", "a", "j", "ha", "ic"],
+      5 => ["z", "a", "hb", "hc", "f"],
+    },
+    7 => {
+      1 => ["z", "a", "d", "e", "k"],
+      2 => ["z", "a", "j", "ha", "ib"],
+      3 => ["z", "a", "b", "c", "g"],
+      4 => ["z", "a", "j", "ha", "ic"],
+      5 => ["z", "a", "hb", "hc", "f"],
+    },
+    8 => {
+      1 => ["z", "e", "l", "k"],
+      2 => ["z", "b", "j", "ha", "id"],
+      3 => ["z", "c", "l", "hb", "g"],
+      4 => ["z", "d", "j", "ha", "ie"],
+      5 => ["z", "a", "l", "hc", "f"],
+    },
+    9 => {
+      1 => ["z", "e", "l", "k"],
+      2 => ["z", "b", "j", "ha", "id"],
+      3 => ["z", "c", "l", "hb", "g"],
+      4 => ["z", "d", "j", "ha", "ie"],
+      5 => ["z", "a", "l", "hc", "f"],
+    },
+    10 => {
+      1 => ["z", "e", "l", "k"],
+      2 => ["z", "b", "j", "ha", "id"],
+      3 => ["z", "c", "l", "hb", "g"],
+      4 => ["z", "d", "j", "ha", "ie"],
+      5 => ["z", "a", "l", "hc", "f"],
+    },
+  },
+  item: {
+    alloy: {
+      a2: "Iron Ore",
+      b: "Machalite Ore",
+      c: "Dragonite Ore",
+    },
+    bone: {
+      b: "2024 Weapon Ticket",
+    },
+    leather: {
+      a1: "Iron Ore",
+      b: "Machalite Ore",
+      c: "Dragonite Ore",
+    },
+    "g-jagr": {
+      a1: "Great Jagras Hide",
+      a2: "Great Jagras Scale",
+      b: "Great Jagras Claw",
+      c: "Great Jagras Mane",
+      d: "Great Jagras Primescale",
+      e: "Fanged Wyvern Gem",
+    },
+    kulu: {
+      a1: "Kulu-Ya-Ku Hide",
+      a2: "Kulu-Ya-Ku Scale",
+      b: "Kulu-Ya-Ku Beak",
+      c: "Kulu-Ya-Ku Plume",
+      d: "Kulu-Ya-Ku Primescale",
+      e: "Kulu-Ya-Ku Primehide",
+    },
+    puke: {
+      a1: "Pukei-Pukei Shell",
+      a2: "Pukei-Pukei Scale",
+      b: "Pukei-Pukei Tail",
+      c: "Pukei-Pukei Sac",
+      d: "Pukei-Pukei Quill",
+      e: "Pukei-Pukei Primescale",
+    },
+    barr: {
+      a1: "Barroth Shell",
+      a2: "Barroth Claw",
+      b: "Barroth Tail",
+      c: "Barroth Scalp",
+      d: "Barroth Ridge",
+      e: "Barroth Primeshell",
+    },
+    "g-girr": {
+      a1: "Great Girros Scale",
+      a2: "Great Girros Fang",
+      b: "Great Girros Tail",
+      c: "Great Girros Hood",
+      d: "Great Girros Primescale",
+      e: "Great Girros Primefang",
+    },
+    tobi: {
+      a1: "Tobi-Kadachi Scale",
+      a2: "Tobi-Kadachi Claw",
+      b: "Tobi-Kadachi Pelt",
+      c: "Tobi-Kadachi Membrane",
+      d: "Tobi-Kadachi Primescale",
+      e: "Tobi-Kadachi Electrode",
+    },
+    paol: {
+      a1: "Paolumu Pelt",
+      a2: "Paolumu Scale",
+      b: "Paolumu Webbing",
+      c: "Paolumu Shell",
+      d: "Paolumu Primescale",
+      e: "Paolumu Primeshell",
+    },
+    jyur: {
+      a1: "Jyuratodus Shell",
+      a2: "Jyuratodus Scale",
+      b: "Jyuratodus Fang",
+      c: "Jyuratodus Fin",
+      d: "Jyuratodus Primescale",
+      e: "Jyuratodus Primeshell",
+    },
+    anja: {
+      a1: "Anjanath Scale",
+      a2: "Anjanath Fang",
+      b: "Anjanath Tail",
+      c: "Anjanath Nosebone",
+      d: "Anjanath Primescale",
+      e: "Anjanath Plate",
+    },
+    rathi: {
+      a1: "Rathian Shell",
+      a2: "Rathian Scale",
+      b: "Rathian Webbing",
+      c: "Rathian Spike",
+      d: "Rathian Primescale",
+      e: "Rathian Plate",
+    },
+    legi: {
+      a1: "Legiana Hide",
+      a2: "Legiana Scale",
+      b: "Legiana Claw",
+      c: "Legiana Webbing",
+      d: "Legiana Primescale",
+      e: "Legiana Plate",
+    },
+    diab: {
+      a1: "Diablos Shell",
+      a2: "Diablos Fang",
+      b: "Diablos Tailcase",
+      c: "Diablos Ridge",
+      d: "Diablos Primeshell",
+      e: "Diablos Marrow",
+    },
+    ratha: {
+      a1: "Rathalos Wingtalon",
+      a2: "Rathalos Scale",
+      b: "Rathalos Tail",
+      c: "Rathalos Marrow",
+      d: "Rathalos Primescale",
+      e: "Rathalos Plate",
+    },
+    "b-diab": {
+      a1: "Black Diablos Shell",
+      a2: "Black Diablos Fang",
+      b: "Black Diablos Tailcase",
+      c: "Black Diablos Ridge",
+      d: "Black Diablos Primeshell",
+      e: "Black Diablos Marrow",
+    },
+    "p-rathi": {
+      a1: "Pink Rathian Shell",
+      a2: "Pink Rathian Scale",
+      b: "Pink Rathian Webbing",
+      c: "Pink Rathian Spike",
+      d: "Pink Rathian Primescale",
+      e: "Pink Rathian Plate",
+    },
+    "a-ratha": {
+      a1: "Azure Rathalos Wingtalon",
+      a2: "Azure Rathalos Scale",
+      b: "Azure Rathalos Tail",
+      c: "Azure Rathalos Marrow",
+      d: "Azure Rathalos Primescale",
+      e: "Azure Rathalos Plate",
+    },
+    rado: {
+      a1: "Radobaan Shell",
+      a2: "Radobaan Scale",
+      b: "Radobaan Tail",
+      c: "Radobaan Oilshell",
+      d: "Radobaan Primescale",
+      e: "Radobaan Marrow",
+    },
+    banb: {
+      a1: "Banbaro Ridge",
+      a2: "Banbaro Shell",
+      b: "Banbaro Tail",
+      c: "Banbaro Pelt",
+      d: "Banbaro Primeshell",
+      e: "Banbaro Great Horn",
+    },
+    bari: {
+      a1: "Barioth Shell",
+      a2: "Barioth Claw",
+      b: "Barioth Tail",
+      c: "Barioth Spike",
+      d: "Barioth Primeclaw",
+      e: "Amber Fang",
+    },
+    zino: {
+      a1: "Zinogre Shell",
+      a2: "Zinogre Claw",
+      b: "Zinogre Tail",
+      c: "Zinogre Shockfur",
+      d: "Zinogre Primeclaw",
+      e: "Zinogre Horn",
+      f: "Zinogre Plate",
+    },
+    halloween: {
+      a1: "Kulu-Ya-Ku Hide",
+      b: "Pumpkin Ticket",
+      c: "Kulu-Ya-Ku Plume",
+      d: "Kulu-Ya-Ku Primescale",
+      e: "Kulu-Ya-Ku Primehide",
+    },
+    "ny-24": {
+      b: "2024 Armor Ticket",
+    },
+    f: {
+      a: "Carpenterbug",
+      b: "Earth Crystal",
+      c: "Monster Bone+",
+    },
+    g: {
+      a: "Fire Herb",
+      b: "Flowfern",
+      c: "Snow Herb",
+      d: "Parashroom",
+      e: "Toadstool",
+      f: "Thunderbug",
+      g: "Godbug",
+      h: "Sleep Herb",
+    },
+    h1: {
+      a: "Monster Bone S",
+      b: "Monster Bone M",
+      c: "Monster Bone L",
+    },
+    h2: {
+      a: "Iron Ore",
+      b: "Machalite Ore",
+      c: "Dragonite Ore",
+    },
+    j1: "Wingdrake Hide",
+    j2: "Sharp Claw",
+    k1: "Armor Refining Parts",
+    k2: "Weapon Refining Parts",
+    l: "Wyvern Gem Shard",
+    z: "Zenny",
+  },
+}
+
+def translation_table(equipable, data)
+  if equipable.monster.nil?
+    printf("no_monster: %s\n", equipable.name)
+  end
+  mon_key = equipable.monster&.key&.to_sym || :alloy
+
+  main_map = {
+    j1: "Wingdrake Hide",
+    j2: "Sharp Claw",
+    k1: "Armor Refining Parts",
+    k2: "Weapon Refining Parts",
+    l: "Wyvern Gem Shard",
+    z: "Zenny",
+  }
+
+  a = equipable.armor? ? :a1 : :a2
+  j = equipable.armor? ? :j1 : :j2
+  k = equipable.armor? ? :k1 : :k2
+  
+  f_code, g_code, h_code, alt_mon = data[:itemType][mon_key]
+
+  f_map = {
+    a: 'Carpenterbug',
+    b: 'Earth Crystal',
+    c: 'Monster Bone+',
+  }
+  g_map = {
+    a: "Fire Herb",
+    b: "Flowfern",
+    c: "Snow Herb",
+    d: "Parashroom",
+    e: "Toadstool",
+    f: "Thunderbug",
+    g: "Godbug",
+    h: "Sleep Herb",
+  }
+  h_map =
+    if h_code == "1"
+      {
+        ha: 'Monster Bone S',
+        hb: 'Monster Bone M',
+        hc: 'Monster Bone L',
+      }
+    else
+      {
+        ha: 'Iron Ore',
+        hb: 'Machalite Ore',
+        hc: 'Dragonite Ore',
+      }
+    end
+  monster_items = data[:item][mon_key]
+  alt_monster_items = data[:item][alt_mon.to_sym].transform_keys { |k| ['i', k].join.to_sym }
+
+  {
+    a: monster_items[a],
+    **monster_items.slice(*%i[b c d e]),
+    f: f_map[f_code.to_sym],
+    g: g_map[g_code.to_sym],
+    **h_map,
+    **alt_monster_items.slice(*['ib', 'ic', 'id', 'ie'].map(&:to_sym)),
+    j: main_map[j],
+    k: main_map[k],
+    l: main_map[:l],
+    z: main_map[:z],
+  }
 end
 
 weapons = [
@@ -1329,7 +2954,7 @@ weapons = [
 ].each do |grade, name, power, affinity, element, element_power, subgroup, key, mon|
   group = :weapon
 
-  Equipable.find_or_create_by(name: name, key: key, subgroup: subgroup) { |equip|
+  equipable = Equipable.find_or_create_by(name: name, key: key, subgroup: subgroup) { |equip|
     equip.attributes = {
       group: group,
       power: power,
@@ -1340,6 +2965,28 @@ weapons = [
       monster: mon,
     }
   }
+
+  next if mon&.key.nil?
+  table = translation_table(equipable, all)
+  mon_key = mon&.key&.to_sym || :alloy
+  starting_grade = mon_info[mon_key][:unlock]
+
+  set = starting_grade.upto(10).map do |gr|
+    all[:costType][gr].map do |subgr, items|
+      cost_set =
+        if starting_grade == gr && subgr == 1
+          equipable.armor? ? all[:forgeArmorCost][gr] : all[:forgeWeaponCost][gr]
+        else
+          equipable.armor? ? all[:armorCost][gr][subgr] : all[:weaponCost][gr][subgr]
+        end
+      cost_set = cost_set.map(&:to_i)
+      [gr, subgr, cost_set] << items.map.with_index do |item_code, item_idx|
+        item_name = table[item_code.to_sym]
+        item = Item.find_by(name: item_name)
+        [item.name, cost_set[item_idx]]
+      end
+    end
+  end
 end
 
 
@@ -2467,16 +4114,38 @@ armor = [
   [10, "Zinogre Greaves 10", 182, "Zinogre Set", zinogre, :greaves],
 ]
 
-armor.each do |grade, name, power, key, mon, subgroup|
+armor_items = armor.map do |grade, name, power, key, mon, subgroup|
   group = :armor
 
-  Equipable.find_or_create_by(grade: grade, name: name, key: key, subgroup: subgroup) { |equip|
+   equipable = Equipable.find_or_create_by(grade: grade, name: name, key: key, subgroup: subgroup) { |equip|
     equip.attributes = {
       group: group,
       power: power,
       monster: mon,
     }
   }
+
+  next if mon&.key.nil?
+  table = translation_table(equipable, all)
+  mon_key = mon&.key&.to_sym
+  starting_grade = mon_info[mon_key][:unlock]
+
+  set = starting_grade.upto(10).map do |gr|
+    all[:costType][gr].map do |subgr, items|
+      cost_set =
+        if starting_grade == gr && subgr == 1
+          equipable.armor? ? all[:forgeArmorCost][gr] : all[:forgeWeaponCost][gr]
+        else
+          equipable.armor? ? all[:armorCost][gr][subgr] : all[:weaponCost][gr][subgr]
+        end
+      cost_set = cost_set.map(&:to_i)
+      [gr, subgr, cost_set] << items.map.with_index do |item_code, item_idx|
+        item_name = table[item_code.to_sym]
+        item = Item.find_by(name: item_name)
+        [item.name, cost_set[item_idx]]
+      end
+    end
+  end
 end
 
 
@@ -2604,648 +4273,7 @@ special_monsters_and_weapons = [
 
 
 
-# monsters = {}
-# 
-# monster_names = {
-#   'alloy': 'Alloy',
-#   'leather': 'Leather',
-#   'g-jagr': 'Great Jagras',
-#   'kulu': 'Kulu-Ya-Ku',
-#   'puke': 'Pukei-Pukei',
-#   'barr': 'Barroth',
-#   'g-girr': 'Great Girros',
-#   'tobi': 'Tobi-Kadachi',
-#   'halloween': 'Halloween',
-#   'paol': 'Paolumu',
-#   'jyur': 'Jyuratodus',
-#   'anja': 'Anjanath',
-#   'rathi': 'Rathian',
-#   'legi': 'Legiana',
-#   'diab': 'Diablos',
-#   'ratha': 'Rathalos',
-#   'p-rathi': 'Pink Rathian',
-#   'a-ratha': 'Azure Rathalos',
-#   'b-diab': 'Black Diablos',
-#   'rado': 'Radobaan',
-#   'banb': 'Banbaro',
-#   'bari': 'Barioth',
-#   'zino': 'Zinogre',
-#   'small-monster': 'Small Monsters',
-#   'ore': 'Ore',
-#   'bone': 'Bone',
-#   'plant-bug': 'Plant/Bug',
-#   'event': 'Event',
-#   'rare': 'Rare',
-#   'ny-24': 'New Year'
-# }
-# 
-# {
-#   'g-jagr': {
-#     'biome': [ 'forest', 'desert', 'swamp' ],
-#     'weakness': [ 'fire' ],
-#     'poison': 3,
-#     'paralysis': 3,
-#     'stun': 3,
-#     'sleep': 3,
-#     'hp': {
-#       '5': 6450,
-#       '6': 10520,
-#       '7': 17560,
-#       '8': 32080,
-#       '9': 67780,
-#       '10': 139115
-#     },
-#     'raid-hp': {
-#       '4': 7900,
-#       '5': 13935,
-#       '6': 24665,
-#       '7': 41340
-#     },
-#     'physiology': {
-#       'head': [ 130, 135, 130, 1, [ 'c', 'e' ] ],
-#       'body': [ 90, 100, 70 ],
-#       'stomach': [ 140, 145, 140, 1 ],
-#       'forelegs': [ 120, 110, 90, 1, [ 'b', 'd', 'f' ] ],
-#       'hindlegs': [ 100, 90, 70 ],
-#       'tail': [ 100, 90, 70 ]
-#     }
-#   },
-#   'kulu': {
-#     'biome': [ 'forest', 'desert', 'swamp' ],
-#     'weakness': [ 'water' ],
-#     'poison': 2,
-#     'paralysis': 3,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 6150,
-#       '6': 10040,
-#       '7': 16740,
-#       '8': 30580,
-#       '9': 64560,
-#       '10': 132480
-#     },
-#     'raid-hp': {
-#       '4': 7520,
-#       '5': 13270,
-#       '6': 23490,
-#       '7': 39370
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'b', 'd', 'f' ] ],
-#       'body': [ 90, 90, 70 ],
-#       'forelegs': [ 130, 135, 130, 1, [ 'c', 'e' ] ],
-#       'hindlegs': [ 90, 90, 70 ],
-#       'tail': [ 110, 110, 70 ],
-#       'rock': [ 10, 10, 10 ]
-#     }
-#   },
-#   'puke': {
-#     'biome': [ 'forest', 'desert', 'swamp' ],
-#     'weakness': [ 'thunder' ],
-#     'poison': 1,
-#     'paralysis': 3,
-#     'stun': 2,
-#     'sleep': 3,
-#     'hp': {
-#       '5': 6150,
-#       '6': 10040,
-#       '7': 16740,
-#       '8': 30580,
-#       '9': 64560,
-#       '10': 132480
-#     },
-#     'raid-hp': {
-#       '4': 7520,
-#       '5': 13270,
-#       '6': 23490,
-#       '7': 39370
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'c', 'e' ] ],
-#       'back': [ 90, 100, 70, 1 ],
-#       'wings': [ 110, 110, 95, 1, [ 'd' ] ],
-#       'legs': [ 100, 110, 80 ],
-#       'tail': [ 120, 110, 90, 2, [ 'b', 'f' ] ]
-#     }
-#   },
-#   'barr': {
-#     'biome': [ 'desert', 'swamp' ],
-#     'weakness': [ 'fire' ],
-#     'poison': 3,
-#     'paralysis': 2,
-#     'stun': 1,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 4300,
-#       '6': 7720,
-#       '7': 12680,
-#       '8': 23560,
-#       '9': 49950,
-#       '10': 99160
-#     },
-#     'raid-hp': {
-#       '4': 5265,
-#       '5': 9290,
-#       '6': 16440,
-#       '7': 27560
-#     },
-#     'physiology': {
-#       'head': [ 80, 110, 55, 3, [ 'c', 'd' ] ],
-#       'body': [ 100, 100, 80 ],
-#       'forelegs': [ 140, 145, 140, 1, [ 'e' ] ],
-#       'hindlegs': [ 90, 100, 65, 1 ],
-#       'tail': [ 120, 100, 80, 2, [ 'b', 'f' ] ],
-#       'mud': [ 30 ],
-#       'water-mud': 1
-#     }
-#   },
-#   'g-girr': {
-#     'biome': [ 'forest', 'swamp' ],
-#     'weakness': [ 'water' ],
-#     'poison': 2,
-#     'paralysis': 1,
-#     'stun': 2,
-#     'sleep': 3,
-#     'hp': {
-#       '5': 6150,
-#       '6': 11000,
-#       '7': 18150,
-#       '8': 33680,
-#       '9': 71340,
-#       '10': 141680
-#     },
-#     'raid-hp': {
-#       '4': 7520,
-#       '5': 13270,
-#       '6': 23490,
-#       '7': 39370
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'c', 'e', 'f' ] ],
-#       'body': [ 90, 100, 70 ],
-#       'forelegs': [ 110, 110, 90, 1, [ 'd' ] ],
-#       'hindlegs': [ 100, 100, 80 ],
-#       'tail': [ 120, 110, 90, 2, [ 'b' ] ]
-#     }
-#   },
-#   'tobi': {
-#     'biome': [ 'forest', 'swamp' ],
-#     'weakness': [ 'water' ],
-#     'poison': 3,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 5850,
-#       '6': 10450,
-#       '7': 18680,
-#       '8': 31960,
-#       '9': 74240,
-#       '10': 143340
-#     },
-#     'raid-hp': {
-#       '4': 7145,
-#       '5': 12610,
-#       '6': 22315,
-#       '7': 37400
-#     },
-#     'physiology': {
-#       'head': [ 130, 135, 130, 1, [ 'b' ] ],
-#       'body': [ 100, 110, 80 ],
-#       'back': [ 100, 100, 95, 1 ],
-#       'forelegs': [ 90, 90, 55, 1, [ 'c', 'd' ] ],
-#       'hindlegs': [ 90, 90, 55 ],
-#       'tail': [ 140, 140, 140, 1, [ 'e', 'f' ] ]
-#     }
-#   },
-#   'paol': {
-#     'biome': [ 'desert', 'swamp' ],
-#     'weakness': [ 'fire' ],
-#     'poison': 2,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 6960,
-#       '6': 12330,
-#       '7': 19040,
-#       '8': 38600,
-#       '9': 74920,
-#       '10': 148760
-#     },
-#     'raid-hp': {
-#       '4': 7900,
-#       '5': 13935,
-#       '6': 24665,
-#       '7': 41340
-#     },
-#     'physiology': {
-#       'head': [ 130, 130, 95 ],
-#       'neck-pouch': [ 140, 140, 130, 1 ],
-#       'body': [ 100, 110, 80 ],
-#       'back': [ 100, 110, 80, 1 ],
-#       'wings': [ 100, 100, 130, 1, [ 'b', 'd' ] ],
-#       'legs': [ 80, 90, 55 ],
-#       'tail': [ 90, 80, 55, 1, [ 'c', 'e', 'f' ] ]
-#     }
-#   },
-#   'jyur': {
-#     'biome': [ 'swamp' ],
-#     'weakness': [ 'thunder' ],
-#     'poison': 2,
-#     'paralysis': 2,
-#     'stun': 3,
-#     'sleep': 1,
-#     'hp': {
-#       '5': 4590,
-#       '6': 8200,
-#       '7': 13760,
-#       '8': 25720,
-#       '9': 54680,
-#       '10': 105600
-#     },
-#     'raid-hp': {
-#       '4': 5265,
-#       '5': 9290,
-#       '6': 16440,
-#       '7': 27560
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'b', 'f' ] ],
-#       'neck': [ 110, 120, 90 ],
-#       'body': [ 100, 110, 80, 1, [ 'c', 'd' ] ],
-#       'back': [ 80, 90, 65 ],
-#       'fins': [ 80, 80, 95 ],
-#       'hindlegs': [ 90, 100, 70, 1 ],
-#       'tail': [ 135, 130, 130, 1, [ 'e' ] ],
-#       'mud': [ 30 ],
-#       'water-mud': 1
-#     }
-#   },
-#   'anja': {
-#     'biome': [ 'forest', 'desert' ],
-#     'weakness': [ 'water' ],
-#     'poison': 2,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 6960,
-#       '6': 12200,
-#       '7': 20800,
-#       '8': 39040,
-#       '9': 83240,
-#       '10': 156880
-#     },
-#     'raid-hp': {
-#       '5': 13965,
-#       '6': 24400,
-#       '7': 41650
-#     },
-#     'physiology': {
-#       'head': [ 130, 135, 130, 1, [ 'c' ] ],
-#       'snout': [ 140, 140, 145 ],
-#       'neck': [ 90, 90, 65 ],
-#       'body': [ 90, 90, 80 ],
-#       'wings': [ 140, 110, 145 ],
-#       'hindlegs': [ 90, 100, 70, 1, [ 'd' ] ],
-#       'tail': [ 130, 120, 95, 2, [ 'b', 'e', 'f' ] ]
-#     }
-#   },
-#   'rathi': {
-#     'biome': [ 'forest', 'desert' ],
-#     'weakness': [ 'thunder', 'dragon' ],
-#     'poison': 1,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 6850,
-#       '6': 11920,
-#       '7': 20400,
-#       '8': 38240,
-#       '9': 81520,
-#       '10': 153640
-#     },
-#     'raid-hp': {
-#       '5': 13680,
-#       '6': 23905,
-#       '7': 40800
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'd' ] ],
-#       'body': [ 90, 100, 70 ],
-#       'back': [ 90, 100, 70, 1 ],
-#       'wings': [ 130, 130, 135, 1, [ 'b' ] ],
-#       'legs': [ 90, 90, 70 ],
-#       'tail': [ 120, 110, 90, 2, [ 'c', 'e', 'f' ] ],
-#       'tail-tip': [ 120, 120, 95 ]
-#     }
-#   },
-#   'p-rathi': {
-#     'biome': [ 'forest' ],
-#     'weakness': [ 'thunder', 'dragon' ],
-#     'poison': 1,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 8120,
-#       '6': 13140,
-#       '7': 23000,
-#       '8': 42920,
-#       '9': 91720,
-#       '10': 169150
-#     },
-#     'raid-hp': {},
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'd' ] ],
-#       'body': [ 90, 100, 70 ],
-#       'back': [ 90, 100, 70, 1 ],
-#       'wings': [ 130, 130, 135, 1, [ 'b' ] ],
-#       'legs': [ 90, 90, 70 ],
-#       'tail': [ 130, 120, 100, 2, [ 'c', 'e', 'f' ] ],
-#       'tail-tip': [ 130, 130, 130 ]
-#     }
-#   },
-#   'legi': {
-#     'biome': [ 'swamp' ],
-#     'weakness': [ 'fire' ],
-#     'poison': 3,
-#     'poison-dmg': 2,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 7440,
-#       '6': 13590,
-#       '7': 23840,
-#       '8': 45080,
-#       '9': 96520,
-#       '10': 174880
-#     },
-#     'raid-hp': {
-#       '5': 13965,
-#       '6': 24400,
-#       '7': 41650,
-#       '8': 78105
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1 ],
-#       'body': [ 80, 90, 65 ],
-#       'back': [ 80, 90, 65, 1 ],
-#       'wings': [ 130, 130, 140, 1, [ 'b', 'c', 'd', 'f' ] ],
-#       'legs': [ 90, 100, 70 ],
-#       'tail': [ 120, 110, 90, 1, [ 'e' ] ]
-#     }
-#   },
-#   'diab': {
-#     'biome': [ 'desert' ],
-#     'weakness': [ 'ice', 'dragon' ],
-#     'poison': 2,
-#     'paralysis': 3,
-#     'stun': 1,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 6840,
-#       '6': 12480,
-#       '7': 21920,
-#       '8': 41420,
-#       '9': 88670,
-#       '10': 160600
-#     },
-#     'raid-hp': {
-#       '5': 12825,
-#       '6': 22410,
-#       '7': 38250,
-#       '8': 71730
-#     },
-#     'physiology': {
-#       'head': [ 110, 135, 90 ],
-#       'horns': [ 80, 100, 65, 1, [ 'f' ] ],
-#       'body': [ 140, 145, 90 ],
-#       'back': [ 80, 100, 65, 1, [ 'c', 'd', 'e' ] ],
-#       'wings': [ 110, 90, 135 ],
-#       'legs': [ 100, 100, 80 ],
-#       'tail': [ 130, 80, 80, 2, [ 'b', 'e' ] ],
-#       'tail-tip': [ 80, 90, 55 ]
-#     }
-#   },
-#   'b-diab': {
-#     'biome': [ 'desert' ],
-#     'weakness': [ 'ice' ],
-#     'poison': 2,
-#     'paralysis': 3,
-#     'stun': 1,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 9800,
-#       '6': 16000,
-#       '7': 29000,
-#       '8': 55250,
-#       '9': 112080,
-#       '10': 187660
-#     },
-#     'raid-hp': {},
-#     'physiology': {
-#       'head': [ 105, 130, 80 ],
-#       'horns': [ 75, 95, 60, 1, [ 'f' ] ],
-#       'body': [ 135, 140, 85 ],
-#       'back': [ 75, 95, 60, 1, [ 'c', 'd', 'e' ] ],
-#       'wings': [ 105, 85, 130 ],
-#       'legs': [ 95, 95, 75 ],
-#       'tail': [ 130, 75, 75, 2, [ 'b', 'e' ] ],
-#       'tail-tip': [ 75, 85, 50 ]
-#     }
-#   },
-#   'ratha': {
-#     'biome': [ 'forest' ],
-#     'weakness': [ 'thunder', 'dragon' ],
-#     'poison': 1,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 8150,
-#       '6': 13160,
-#       '7': 23120,
-#       '8': 43720,
-#       '9': 93600,
-#       '10': 169520
-#     },
-#     'raid-hp': {
-#       '5': 13540,
-#       '6': 23655,
-#       '7': 40375,
-#       '8': 75715
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'd' ] ],
-#       'body': [ 90, 100, 70 ],
-#       'back': [ 90, 100, 70, 1, [ 'c' ] ],
-#       'wings': [ 130, 130, 135, 1 ],
-#       'legs': [ 90, 90, 70 ],
-#       'tail': [ 120, 110, 90, 2, [ 'b', 'c', 'e', 'f' ] ],
-#       'tail-tip': [ 120, 120, 95 ]
-#     }
-#   },
-#   'a-ratha': {
-#     'biome': [ 'forest' ],
-#     'weakness': [ 'ice', 'dragon' ],
-#     'poison': 1,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 9000,
-#       '6': 14580,
-#       '7': 25870,
-#       '8': 49020,
-#       '9': 105300,
-#       '10': 190150
-#     },
-#     'raid-hp': {},
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'd' ] ],
-#       'body': [ 90, 100, 70 ],
-#       'back': [ 90, 100, 70, 1, [ 'c' ] ],
-#       'wings': [ 130, 130, 135, 1 ],
-#       'legs': [ 80, 80, 65 ],
-#       'tail': [ 110, 100, 80, 2, [ 'b', 'c', 'e', 'f' ] ],
-#       'tail-tip': [ 140, 135, 135 ]
-#     }
-#   },
-#   'rado': {
-#     'biome': [ 'desert', 'swamp' ],
-#     'weakness': [ 'ice', 'dragon' ],
-#     'poison': 3,
-#     'paralysis': 2,
-#     'stun': 1,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 5840,
-#       '6': 10440,
-#       '7': 17200,
-#       '8': 31940,
-#       '9': 67760,
-#       '10': 134600
-#     },
-#     'raid-hp': {
-#       '4': 7145,
-#       '5': 12610,
-#       '6': 22315,
-#       '7': 37400,
-#       '8': 75715
-#     },
-#     'physiology': {
-#       'head': [ 70, 100, 55, 1, [ 'c', 'f' ] ],
-#       '*head': [ 140, 145, 140 ],
-#       'neck': [ 90, 90, 70 ],
-#       'body': [ 70, 90, 55, 1, [ 'e' ] ],
-#       '*body': [ 125, 130, 95 ],
-#       'hindlegs': [ 70, 90, 55, 1, [ 'd' ] ],
-#       '*hindlegs': [ 130, 125, 130 ],
-#       'tail': [ 120, 110, 90, 2, [ 'b' ] ]
-#     }
-#   },
-#   'banb': {
-#     'biome': [ 'forest', 'swamp' ],
-#     'weakness': [ 'fire', 'dragon' ],
-#     'poison': 2,
-#     'paralysis': 2,
-#     'stun': 1,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 4280,
-#       '6': 7600,
-#       '7': 11760,
-#       '8': 23880,
-#       '9': 46360,
-#       '10': 92080
-#     },
-#     'raid-hp': {
-#       '4': 4890,
-#       '5': 8625,
-#       '6': 15270,
-#       '7': 25590
-#     },
-#     'physiology': {
-#       'horns': [ 80, 100, 65, 1, [ 'e', 'f' ] ],
-#       'head': [ 140, 145, 140 ],
-#       'neck': [ 90, 100, 70 ],
-#       'body': [ 80, 90, 65 ],
-#       'hindlegs': [ 90, 100, 70, 1, [ 'd' ] ],
-#       '*hindlegs': [ 130, 135, 130 ],
-#       'tail': [ 100, 80, 65, 2, [ 'b', 'c' ] ]
-#     }
-#   },
-#   'bari': {
-#     'biome': [ 'forest' ],
-#     'weakness': [ 'fire' ],
-#     'poison': 2,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 6240,
-#       '6': 10920,
-#       '7': 18680,
-#       '8': 35040,
-#       '9': 74720,
-#       '10': 140840
-#     },
-#     'raid-hp': {
-#       '5': 12540,
-#       '6': 21910,
-#       '7': 37400,
-#       '8': 70135
-#     },
-#     'physiology': {
-#       'head': [ 140, 145, 140, 1, [ 'e' ] ],
-#       'body': [ 100, 110, 80 ],
-#       'back': [ 100, 110, 80 ],
-#       'wings': [ 110, 135, 80 ],
-#       'spikes': [ 130, 135, 130, 1, [ 'c', 'd' ] ],
-#       'hindlegs': [ 90, 100, 70 ],
-#       'tail': [ 130, 90, 130, 2, [ 'b', 'f' ] ],
-#       'tail-tip': [ 145, 130, 130 ]
-#     }
-#   },
-#   'zino': {
-#     'biome': [ 'forest', 'swamp' ],
-#     'weakness': [ 'ice' ],
-#     'poison': 2,
-#     'paralysis': 2,
-#     'stun': 2,
-#     'sleep': 2,
-#     'hp': {
-#       '5': 7480
-#     },
-#     'raid-hp': {
-#       '5': 14960,
-#       '6': 26145,
-#       '7': 44625,
-#       '8': 83685
-#     },
-#     'physiology': {
-#       'horns': [ 130, 135, 130, 1, [ 'e' ] ],
-#       '+horns': [ 140, 145, 140 ],
-#       'neck': [ 110, 110, 90 ],
-#       '+neck': [ 120, 120, 100 ],
-#       'body': [ 90, 100, 70 ],
-#       '+body': [ 80, 90, 65 ],
-#       'back': [ 80, 90, 65, 1, [ 'c' ] ],
-#       '+back': [ 90, 100, 70 ],
-#       'forelegs': [ 110, 120, 90, 1, [ 'd' ] ],
-#       '+forelegs': [ 120, 130, 95 ],
-#       'hindlegs': [ 90, 100, 70 ],
-#       '+hindlegs': [ 80, 90, 65 ],
-#       'tail': [ 120, 110, 90, 2, [ 'b', 'f' ] ],
-#       '+tail': [ 130, 120, 95 ]
-#     }
-#   }
-# }.each do |key, info|
+#   .each do |key, info|
 #   name = monster_names[key]
 # 
 #   defaults = {

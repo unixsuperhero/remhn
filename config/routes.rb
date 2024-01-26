@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :item_stats
+  resources :equipable_stats
   resources :monster_terrains
   resources :item_sources
   resources :monster_elements

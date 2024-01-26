@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Item stats</h1>
+
+<div id="item_stats">
+  <% @item_stats.each do |item_stat| %>
+    <%= render item_stat %>
+    <p>
+      <%= link_to "Show this item stat", item_stat %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New item stat", new_item_stat_path %>

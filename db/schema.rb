@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_25_022203) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_26_014441) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,15 +20,34 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_022203) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "equipable_stats", force: :cascade do |t|
+    t.string "name"
+    t.integer "grade"
+    t.integer "sub_grade"
+    t.integer "atk"
+    t.integer "crit"
+    t.integer "elem"
+    t.integer "def"
+    t.boolean "forge"
+    t.bigint "equipable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipable_id"], name: "index_equipable_stats_on_equipable_id"
+  end
+
   create_table "equipables", force: :cascade do |t|
     t.string "key"
+    t.string "set_name"
     t.string "name"
     t.integer "group"
-    t.integer "subgroup"
-    t.integer "power"
-    t.integer "affinity"
-    t.integer "element_power"
-    t.integer "grade"
+    t.integer "sub_group"
+    t.integer "unlock_grade"
+    t.boolean "starter"
+    t.boolean "event_only"
+    t.string "atk_scheme"
+    t.string "crit_scheme"
+    t.string "elem_scheme"
+    t.string "def_scheme"
     t.bigint "element_id"
     t.bigint "monster_id"
     t.datetime "created_at", null: false
@@ -58,6 +77,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_022203) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_item_sources_on_item_id"
     t.index ["source_type", "source_id"], name: "index_item_sources_on_source"
+  end
+
+  create_table "item_stats", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "equipable_stat_id", null: false
+    t.bigint "equipable_id", null: false
+    t.bigint "monster_id", null: false
+    t.integer "grade"
+    t.integer "sub_grade"
+    t.integer "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipable_id"], name: "index_item_stats_on_equipable_id"
+    t.index ["equipable_stat_id"], name: "index_item_stats_on_equipable_stat_id"
+    t.index ["item_id"], name: "index_item_stats_on_item_id"
+    t.index ["monster_id"], name: "index_item_stats_on_monster_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -171,5 +206,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_022203) do
     t.index ["monster_id"], name: "index_weaknesses_on_monster_id"
   end
 
+  add_foreign_key "equipable_stats", "equipables"
   add_foreign_key "item_sources", "items"
 end

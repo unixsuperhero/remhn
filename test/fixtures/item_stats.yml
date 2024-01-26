@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  equipable_stat: one
+  qty: 1
+
+two:
+  item: two
+  equipable_stat: two
+  qty: 1

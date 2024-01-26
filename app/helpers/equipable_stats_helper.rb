@@ -1,0 +1,2 @@
+module EquipableStatsHelper
+end

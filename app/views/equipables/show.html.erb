@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @equipable %>
+
+<div>
+  <%= link_to "Edit this equipable", edit_equipable_path(@equipable) %> |
+  <%= link_to "Back to equipables", equipables_path %>
+
+  <%= button_to "Destroy this equipable", @equipable, method: :delete %>
+</div>

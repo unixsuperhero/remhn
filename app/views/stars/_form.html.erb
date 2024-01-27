@@ -1,0 +1,37 @@
+<%= form_with(model: star) do |form| %>
+  <% if star.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(star.errors.count, "error") %> prohibited this star from being saved:</h2>
+
+      <ul>
+        <% star.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :stars, style: "display: block" %>
+    <%= form.number_field :stars %>
+  </div>
+
+  <div>
+    <%= form.label :monster_id, style: "display: block" %>
+    <%= form.text_field :monster_id %>
+  </div>
+
+  <div>
+    <%= form.label :hp, style: "display: block" %>
+    <%= form.number_field :hp %>
+  </div>
+
+  <div>
+    <%= form.label :raid_hp, style: "display: block" %>
+    <%= form.number_field :raid_hp %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

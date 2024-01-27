@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Equipables</h1>
+
+<div id="equipables">
+  <% @equipables.each do |equipable| %>
+    <%= render equipable %>
+    <p>
+      <%= link_to "Show this equipable", equipable %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New equipable", new_equipable_path %>

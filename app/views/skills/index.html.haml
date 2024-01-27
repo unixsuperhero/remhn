@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Skills
+#skills
+  - @skills.each do |skill|
+    = render skill
+    %p
+      = link_to "Show this skill", skill
+= link_to "New skill", new_skill_path

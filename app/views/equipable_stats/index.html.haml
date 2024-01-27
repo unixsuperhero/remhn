@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Equipable stats
+#equipable_stats
+  - @equipable_stats.each do |equipable_stat|
+    = render equipable_stat
+    %p
+      = link_to "Show this equipable stat", equipable_stat
+= link_to "New equipable stat", new_equipable_stat_path

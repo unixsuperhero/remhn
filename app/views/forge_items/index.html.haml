@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Forge items
+#forge_items
+  - @forge_items.each do |forge_item|
+    = render forge_item
+    %p
+      = link_to "Show this forge item", forge_item
+= link_to "New forge item", new_forge_item_path

@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Locations
+#locations
+  - @locations.each do |location|
+    = render location
+    %p
+      = link_to "Show this location", location
+= link_to "New location", new_location_path

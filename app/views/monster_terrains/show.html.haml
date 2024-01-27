@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+= render @monster_terrain
+%div
+  = link_to "Edit this monster terrain", edit_monster_terrain_path(@monster_terrain)
+  |
+  \#{link_to "Back to monster terrains", monster_terrains_path}
+  
+  \#{button_to "Destroy this monster terrain", @monster_terrain, method: :delete}

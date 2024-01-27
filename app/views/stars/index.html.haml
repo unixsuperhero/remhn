@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Stars
+#stars
+  - @stars.each do |star|
+    = render star
+    %p
+      = link_to "Show this star", star
+= link_to "New star", new_star_path

@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Skill levels
+#skill_levels
+  - @skill_levels.each do |skill_level|
+    = render skill_level
+    %p
+      = link_to "Show this skill level", skill_level
+= link_to "New skill level", new_skill_level_path

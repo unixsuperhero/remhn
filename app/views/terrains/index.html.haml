@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Terrains
+#terrains
+  - @terrains.each do |terrain|
+    = render terrain
+    %p
+      = link_to "Show this terrain", terrain
+= link_to "New terrain", new_terrain_path

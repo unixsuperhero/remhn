@@ -1,0 +1,17 @@
+= form_with(model: level) do |form|
+  - if level.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(level.errors.count, "error")
+        prohibited this level from being saved:
+      %ul
+        - level.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :equipable_id, style: "display: block"
+    = form.text_field :equipable_id
+  %div
+    = form.label :grade_number, style: "display: block"
+    = form.text_field :grade_number
+  %div
+    = form.submit

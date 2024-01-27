@@ -1,0 +1,7 @@
+%h1 Editing equipable
+= render "form", equipable: @equipable
+%br/
+%div
+  = link_to "Show this equipable", @equipable
+  |
+  \#{link_to "Back to equipables", equipables_path}

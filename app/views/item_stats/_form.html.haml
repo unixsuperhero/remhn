@@ -1,0 +1,20 @@
+= form_with(model: item_stat) do |form|
+  - if item_stat.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(item_stat.errors.count, "error")
+        prohibited this item_stat from being saved:
+      %ul
+        - item_stat.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :item_id, style: "display: block"
+    = form.text_field :item_id
+  %div
+    = form.label :equipable_stat_id, style: "display: block"
+    = form.text_field :equipable_stat_id
+  %div
+    = form.label :qty, style: "display: block"
+    = form.number_field :qty
+  %div
+    = form.submit

@@ -1,0 +1,7 @@
+%h1 Editing element
+= render "form", element: @element
+%br/
+%div
+  = link_to "Show this element", @element
+  |
+  \#{link_to "Back to elements", elements_path}

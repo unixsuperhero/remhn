@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Item stats
+#item_stats
+  - @item_stats.each do |item_stat|
+    = render item_stat
+    %p
+      = link_to "Show this item stat", item_stat
+= link_to "New item stat", new_item_stat_path

@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+= render @item_stat
+%div
+  = link_to "Edit this item stat", edit_item_stat_path(@item_stat)
+  |
+  \#{link_to "Back to item stats", item_stats_path}
+  
+  \#{button_to "Destroy this item stat", @item_stat, method: :delete}

@@ -1,8 +1,19 @@
 %p{:style => "color: green"}= notice
+
 %h1 Monsters
+
 #monsters
-  - @monsters.each do |monster|
-    = render monster
-    %p
-      = link_to "Show this monster", monster
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Size
+        %th
+    %tbody
+      - monsters.each do |monster|
+        %tr
+          %td= monster.name
+          %td= monster.size.titleize
+          %td= link_to 'Show', monster
+
 = link_to "New monster", new_monster_path

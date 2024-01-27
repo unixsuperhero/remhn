@@ -1,10 +1,4 @@
 class Equipable < ApplicationRecord
-  belongs_to :monster, optional: true
-  belongs_to :element, optional: true
-
-  has_many :equipable_stats
-  has_many :item_stats
-
   enum group: { weapon: 1, armor: 2 }
   enum sub_group: {
     shield_sword:       1,
@@ -21,4 +15,14 @@ class Equipable < ApplicationRecord
     belt:               12,
     greaves:            13,
   }
+
+  belongs_to :monster, optional: true
+  belongs_to :element, optional: true
+
+  has_many :equipable_stats
+  has_many :item_stats
+
+  scope :weapons, -> { where(group: :weapon) }
+  scope :armors, -> { where(group: :armor) }
+
 end

@@ -1,8 +1,49 @@
 %p{:style => "color: green"}= notice
-= render @monster
+
+%h1= monster.name
+
+%p
+  Size:
+  %strong= monster.size.titleize
+
+%br/
+
+%hr/
+%h3 Weapons
+
+%table
+  %thead
+    %tr
+      %th Type
+      %th Name
+  %tbody
+    - monster.equipables.weapons.each do |weapon|
+      %tr{ id: dom_id(weapon) }
+        %td= weapon.sub_group.titleize
+        %td
+          = link_to weapon.name, equipable_path(weapon)
+
+%br/
+%br/
+
+%hr/
+%h3 Armor
+
+%table
+  %thead
+    %tr
+      %th Type
+      %th Name
+  %tbody
+    - monster.equipables.armors.each do |armor|
+      %tr{ id: dom_id(armor) }
+        %td= armor.sub_group.titleize
+        %td= armor.name
+
+%br/
 %div
-  = link_to "Edit this monster", edit_monster_path(@monster)
+  = link_to "Edit this monster", edit_monster_path(monster)
   |
   \#{link_to "Back to monsters", monsters_path}
   
-  \#{button_to "Destroy this monster", @monster, method: :delete}
+  \#{button_to "Destroy this monster", monster, method: :delete}

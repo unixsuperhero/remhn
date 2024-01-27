@@ -11,7 +11,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "bootsnap", require: false
-gem 'haml'
+gem 'haml-rails'
 gem "sassc-rails"
 
 gem 'decent_exposure'
@@ -31,6 +31,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry'
+  gem 'html2haml'
 end
 
 group :development do

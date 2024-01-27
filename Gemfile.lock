@@ -91,6 +91,7 @@ GEM
     decent_exposure (3.0.4)
       activesupport (>= 4.0)
     erubi (1.12.0)
+    erubis (2.7.0)
     ffi (1.16.3)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -98,6 +99,16 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
+    haml-rails (2.1.0)
+      actionpack (>= 5.1)
+      activesupport (>= 5.1)
+      haml (>= 4.0.6)
+      railties (>= 5.1)
+    html2haml (2.3.0)
+      erubis (~> 2.7.0)
+      haml (>= 4.0)
+      nokogiri (>= 1.6.0)
+      ruby_parser (~> 3.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -177,6 +188,9 @@ GEM
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
+    ruby_parser (3.21.0)
+      racc (~> 1.5)
+      sexp_processor (~> 4.16)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -190,6 +204,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sexp_processor (4.17.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -235,7 +250,8 @@ DEPENDENCIES
   capybara
   debug
   decent_exposure
-  haml
+  haml-rails
+  html2haml
   importmap-rails
   jbuilder
   pg

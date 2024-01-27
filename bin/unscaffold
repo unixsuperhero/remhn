@@ -1,0 +1,20 @@
+#!/bin/bash
+
+rails d scaffold Element
+rails d scaffold Equipable
+rails d scaffold EquipableStat
+rails d scaffold ForgeItem
+rails d scaffold Item
+rails d scaffold ItemSource
+rails d scaffold ItemStat
+rails d scaffold Level
+rails d scaffold Location
+rails d scaffold Monster
+rails d scaffold MonsterElement
+rails d scaffold MonsterItem
+rails d scaffold MonsterTerrain
+rails d scaffold Skill
+rails d scaffold SkillLevel
+rails d scaffold Star
+rails d scaffold Terrain
+rails d scaffold Weakness

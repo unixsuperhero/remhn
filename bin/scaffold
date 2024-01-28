@@ -5,7 +5,6 @@ rails g scaffold Area name
 
 # db/migrate/20240125001358_create_locations.rb
 rails g scaffold Location name
-rails g scaffold LocationArea location:references area:references
 
 # db/migrate/20240125001356_create_elements.rb
 rails g scaffold Element name
@@ -14,13 +13,10 @@ rails g scaffold Element name
 rails g scaffold Monster name key size:integer
 
 # db/migrate/20240125012236_create_monster_elements.rb
-rails g scaffold MonsterElement {monster,element}:references
 
 # db/migrate/20240125011953_create_weaknesses.rb
-rails g scaffold MonsterWeakness monster:references element:references
 
 # db/migrate/20240125022203_create_monster_terrains.rb
-rails g scaffold MonsterArea monster:references area:references
 
 # db/migrate/20240120235833_create_equipables.rb
 rails g scaffold Equip name set_name equip_type:integer equip_subtype:integer unlock:integer starter:boolean event_only:boolean {atk,crit,elem}_scheme monster:references element:references
@@ -29,13 +25,10 @@ rails g scaffold Equip name set_name equip_type:integer equip_subtype:integer un
 # rails g scaffold Item name item_type:integer rarity:integer
 
 # db/migrate/20240126014340_create_equipable_stats.rb
-rails g scaffold EquipGrade name {grade,sub_grade}:integer {atk,crit,elem,def}_power:integer forge:boolean equip:references
 
 # db/migrate/20240126014441_create_item_stats.rb
-rails g scaffold EquipGradeItem {equip,equip_grade,item}:references qty:integer
 
 # db/migrate/20240125014637_create_item_sources.rb
-rails g scaffold ItemSource item:references source:references{polymorphic}
 
 ## 0 records
 # db/migrate/20240125000820_create_stars.rb
@@ -44,3 +37,17 @@ rails g scaffold ItemSource item:references source:references{polymorphic}
 # db/migrate/20240120235839_create_forge_items.rb
 # db/migrate/20240120235837_create_levels.rb
 # db/migrate/20240120235835_create_skills.rb
+rails g migration create_location_areas location:references area:references
+rails g migration create_monster_elements {monster,element}:references
+rails g migration create_monster_weaknesses monster:references element:references
+rails g migration create_monster_areas monster:references area:references
+rails g migration create_equip_grades name {grade,sub_grade}:integer {atk,crit,elem,def}_power:integer forge:boolean equip:references
+rails g migration create_equip_grade_items {equip,equip_grade,item}:references qty:integer
+rails g migration create_item_sources item:references source:references{polymorphic}
+rails g model LocationArea location:references area:references
+rails g model MonsterElement {monster,element}:references
+rails g model MonsterWeakness monster:references element:references
+rails g model MonsterArea monster:references area:references
+rails g model EquipGrade name {grade,sub_grade}:integer {atk,crit,elem,def}_power:integer forge:boolean equip:references
+rails g model EquipGradeItem {equip,equip_grade,item}:references qty:integer
+rails g model ItemSource item:references source:references{polymorphic}

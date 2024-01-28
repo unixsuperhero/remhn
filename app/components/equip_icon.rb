@@ -1,7 +1,7 @@
 class EquipIcon < ViewComponent::Base
   haml_template <<~HAML
     .equip_icon{ class: classes }
-      %img{ src: image_url(src), title: title }
+      %img{ src: src, title: title }
   HAML
 
   attr_reader :equip, :selected
@@ -15,7 +15,8 @@ class EquipIcon < ViewComponent::Base
   end
 
   def src
-    'part/%s.png' % equip.equip_subtype
+    url = 'part/%s.png' % equip.equip_subtype
+    image_url(url)
   end
 
   def title

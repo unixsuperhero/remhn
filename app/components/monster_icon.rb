@@ -1,7 +1,7 @@
 class MonsterIcon < ViewComponent::Base
   haml_template <<~HAML
     .monster_icon{ class: classes }
-      %img{ src: image_url(src), title: title }
+      %img{ src: src, title: title }
       -#.hover= title
   HAML
 
@@ -16,7 +16,8 @@ class MonsterIcon < ViewComponent::Base
   end
 
   def src
-    'monster/%s.png' % monster.key
+    url = 'monster/%s.png' % monster.key
+    image_url(url)
   end
 
   def title

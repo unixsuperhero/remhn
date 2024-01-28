@@ -30,7 +30,7 @@ class EquipTable
       k: Item.find_by(set_key: k_key),
       l: Item.find_by(set_key: :l),
       z: Item.find_by(set_key: :z),
-    }
+    }.stringify_keys
   end
 
   def a_key

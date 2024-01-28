@@ -108,10 +108,11 @@ else
       eff = eq_info.fetch('eff', {})[subtype] || all_eff
 
       eq_elem = elements[eff]
-      atk_scheme = eff['base']
-      crit_scheme = eff['crit']
-      elem_scheme = eff['ele']
+      atk_scheme = eq_info[eff]['base']
+      crit_scheme = eq_info[eff]['crit']
+      elem_scheme = eq_info[eff]['ele']
       def_scheme = nil
+
       eq = Equip.create(
         set_key: key,
         set_name: set_name,
@@ -163,6 +164,8 @@ else
     end
 
     created.each do |equip|
+      tbl = EquipTable.for(equip)
+
       equip.unlock.upto(10).each do |gr|
         cost_key = equip.armor? ? 'armorCost' : 'weaponCost'
         forge_cost_key = cost_key
@@ -170,14 +173,46 @@ else
           forge_cost_key = equip.armor? ? 'forgeArmorCost' : 'forgeWeaponCost'
         end
 
+        base_gr = (gr - 1) * 5
+
         1.upto(5).each do |subgr|
           costs = db[cost_key]
+          forge = false
           if !equip.starter? && gr == equip.unlock && subgr == 1
             costs = db[forge_cost_key]
+            forge = true
           end
 
-          # DEBUG
-          binding.pry
+          types = db['costType'][gr.to_s][subgr.to_s]
+          cost = forge ? costs[gr.to_s] : costs[gr.to_s][subgr.to_s]
+
+          powers = db['weaponVal']
+          power_idx = base_gr + subgr - 1
+
+          atk_power = powers[equip.atk_scheme]&.[](power_idx)
+          crit_power = powers[equip.crit_scheme]&.[](power_idx)
+          elem_power = powers[equip.elem_scheme]&.[](power_idx)
+          def_power = powers[equip.def_scheme]&.[](power_idx)
+
+          eg = EquipGrade.create(
+            equip: equip,
+            grade: gr,
+            sub_grade: subgr,
+            atk_power: atk_power,
+            crit_power: crit_power,
+            elem_power: elem_power,
+            def_power: def_power,
+            forge: forge,
+          )
+
+          types.each_with_index do |item_type, i|
+            EquipGradeItem.create(
+              equip: equip,
+              equip_grade: eg,
+              item: tbl[item_type],
+              qty: cost[i],
+            )
+          end
         end
       end
     end

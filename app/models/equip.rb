@@ -3,6 +3,9 @@ class Equip < ApplicationRecord
   belongs_to :monster, optional: true
   belongs_to :alt_monster, optional: true, class_name: 'Monster', foreign_key: 'alt_monster_id'
 
+  has_many :equip_grades
+  has_many :equip_grade_items
+
   enum equip_type: { weapon: 1, armor: 2 }
   enum equip_subtype: {
     "shield-sword"  => 1,

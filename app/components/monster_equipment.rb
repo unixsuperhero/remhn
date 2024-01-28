@@ -20,15 +20,7 @@ class MonsterEquipment < ViewComponent::Base
     @selected = selected
   end
 
-  def monster_icon
-    'monster/%s.png' % monster.key
-  end
-
   def part_selected?(part)
     selected == part
-  end
-
-  def part_icon(weapon)
-    'part/%s.png' % weapon.equip_subtype
   end
 end

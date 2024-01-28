@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @equip.name
+%p
+  %b Set name:
+  = @equip.set_name
+%p
+  %b Equip type:
+  = @equip.equip_type
+%p
+  %b Equip subtype:
+  = @equip.equip_subtype
+%p
+  %b Unlock:
+  = @equip.unlock
+%p
+  %b Starter:
+  = @equip.starter
+%p
+  %b Event only:
+  = @equip.event_only
+%p
+  %b Atk scheme:
+  = @equip.atk_scheme
+%p
+  %b Crit scheme:
+  = @equip.crit_scheme
+%p
+  %b Elem scheme:
+  = @equip.elem_scheme
+%p
+  %b Monster:
+  = @equip.monster
+%p
+  %b Element:
+  = @equip.element
+
+= link_to 'Edit', edit_equip_path(@equip)
+\|
+= link_to 'Back', equips_path

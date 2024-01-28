@@ -1,0 +1,46 @@
+= form_for @equip do |f|
+  - if @equip.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@equip.errors.count, "error")} prohibited this equip from being saved:"
+      %ul
+        - @equip.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :set_name
+    = f.text_field :set_name
+  .field
+    = f.label :equip_type
+    = f.number_field :equip_type
+  .field
+    = f.label :equip_subtype
+    = f.number_field :equip_subtype
+  .field
+    = f.label :unlock
+    = f.number_field :unlock
+  .field
+    = f.label :starter
+    = f.check_box :starter
+  .field
+    = f.label :event_only
+    = f.check_box :event_only
+  .field
+    = f.label :atk_scheme
+    = f.text_field :atk_scheme
+  .field
+    = f.label :crit_scheme
+    = f.text_field :crit_scheme
+  .field
+    = f.label :elem_scheme
+    = f.text_field :elem_scheme
+  .field
+    = f.label :monster
+    = f.text_field :monster
+  .field
+    = f.label :element
+    = f.text_field :element
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  equip: one
+  equip_grade: one
+  item: one
+  qty: 1
+
+two:
+  equip: two
+  equip_grade: two
+  item: two
+  qty: 1

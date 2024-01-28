@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  set_name: MyString
+  equip_type: 1
+  equip_subtype: 1
+  unlock: 1
+  starter: false
+  event_only: false
+  atk_scheme: MyString
+  crit_scheme: MyString
+  elem_scheme: MyString
+  monster: one
+  element: one
+
+two:
+  name: MyString
+  set_name: MyString
+  equip_type: 1
+  equip_subtype: 1
+  unlock: 1
+  starter: false
+  event_only: false
+  atk_scheme: MyString
+  crit_scheme: MyString
+  elem_scheme: MyString
+  monster: two
+  element: two

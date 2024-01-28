@@ -4,6 +4,7 @@ rails d scaffold Element
 rails d scaffold Equipable
 rails d scaffold EquipableStat
 rails d scaffold ForgeItem
+# rails d scaffold Item
 rails d scaffold ItemSource
 rails d scaffold ItemStat
 rails d scaffold Level

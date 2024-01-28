@@ -2,6 +2,7 @@ class CreateEquips < ActiveRecord::Migration[7.0]
   def change
     create_table :equips do |t|
       t.string :name
+      t.string :set_key
       t.string :set_name
       t.integer :equip_type
       t.integer :equip_subtype
@@ -11,8 +12,13 @@ class CreateEquips < ActiveRecord::Migration[7.0]
       t.string :atk_scheme
       t.string :crit_scheme
       t.string :elem_scheme
-      t.references :monster, null: false, foreign_key: true
-      t.references :element, null: false, foreign_key: true
+      t.string :def_scheme
+      t.string :f_code
+      t.string :g_code
+      t.string :h_code
+      t.integer :alt_monster_id
+      t.references :monster, null: true
+      t.references :element, null: true
 
       t.timestamps
     end

@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_26_014441) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_28_085617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
@@ -20,104 +26,99 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_26_014441) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "equipable_stats", force: :cascade do |t|
+  create_table "equip_grade_items", force: :cascade do |t|
+    t.bigint "equip_id", null: false
+    t.bigint "equip_grade_id", null: false
+    t.bigint "item_id", null: false
+    t.integer "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equip_grade_id"], name: "index_equip_grade_items_on_equip_grade_id"
+    t.index ["equip_id"], name: "index_equip_grade_items_on_equip_id"
+    t.index ["item_id"], name: "index_equip_grade_items_on_item_id"
+  end
+
+  create_table "equip_grades", force: :cascade do |t|
     t.string "name"
     t.integer "grade"
     t.integer "sub_grade"
-    t.integer "atk"
-    t.integer "crit"
-    t.integer "elem"
-    t.integer "def"
+    t.integer "atk_power"
+    t.integer "crit_power"
+    t.integer "elem_power"
+    t.integer "def_power"
     t.boolean "forge"
-    t.bigint "equipable_id", null: false
+    t.bigint "equip_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["equipable_id"], name: "index_equipable_stats_on_equipable_id"
+    t.index ["equip_id"], name: "index_equip_grades_on_equip_id"
   end
 
-  create_table "equipables", force: :cascade do |t|
-    t.string "key"
-    t.string "set_name"
+  create_table "equips", force: :cascade do |t|
     t.string "name"
-    t.integer "group"
-    t.integer "sub_group"
-    t.integer "unlock_grade"
+    t.string "set_key"
+    t.string "set_name"
+    t.integer "equip_type"
+    t.integer "equip_subtype"
+    t.integer "unlock"
     t.boolean "starter"
     t.boolean "event_only"
     t.string "atk_scheme"
     t.string "crit_scheme"
     t.string "elem_scheme"
     t.string "def_scheme"
-    t.bigint "element_id"
+    t.string "f_code"
+    t.string "g_code"
+    t.string "h_code"
+    t.integer "alt_monster_id"
     t.bigint "monster_id"
+    t.bigint "element_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["element_id"], name: "index_equipables_on_element_id"
-    t.index ["monster_id"], name: "index_equipables_on_monster_id"
-  end
-
-  create_table "forge_items", force: :cascade do |t|
-    t.bigint "equipable_id", null: false
-    t.bigint "level_id", null: false
-    t.bigint "item_id", null: false
-    t.integer "qty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["equipable_id"], name: "index_forge_items_on_equipable_id"
-    t.index ["item_id"], name: "index_forge_items_on_item_id"
-    t.index ["level_id"], name: "index_forge_items_on_level_id"
+    t.index ["element_id"], name: "index_equips_on_element_id"
+    t.index ["monster_id"], name: "index_equips_on_monster_id"
   end
 
   create_table "item_sources", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.string "source_type", null: false
     t.bigint "source_id", null: false
-    t.integer "stars"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_item_sources_on_item_id"
     t.index ["source_type", "source_id"], name: "index_item_sources_on_source"
   end
 
-  create_table "item_stats", force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "equipable_stat_id", null: false
-    t.bigint "equipable_id", null: false
-    t.bigint "monster_id", null: false
-    t.integer "grade"
-    t.integer "sub_grade"
-    t.integer "qty"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["equipable_id"], name: "index_item_stats_on_equipable_id"
-    t.index ["equipable_stat_id"], name: "index_item_stats_on_equipable_stat_id"
-    t.index ["item_id"], name: "index_item_stats_on_item_id"
-    t.index ["monster_id"], name: "index_item_stats_on_monster_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "item_type"
     t.integer "rarity"
+    t.string "set_key"
+    t.string "set_subkey"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "levels", force: :cascade do |t|
-    t.bigint "equipable_id", null: false
-    t.string "grade_number"
+  create_table "location_areas", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.bigint "area_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["equipable_id"], name: "index_levels_on_equipable_id"
+    t.index ["area_id"], name: "index_location_areas_on_area_id"
+    t.index ["location_id"], name: "index_location_areas_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
-    t.string "terrain_name"
-    t.bigint "terrain_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["terrain_id"], name: "index_locations_on_terrain_id"
+  end
+
+  create_table "monster_areas", force: :cascade do |t|
+    t.bigint "monster_id", null: false
+    t.bigint "area_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_monster_areas_on_area_id"
+    t.index ["monster_id"], name: "index_monster_areas_on_monster_id"
   end
 
   create_table "monster_elements", force: :cascade do |t|
@@ -129,83 +130,34 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_26_014441) do
     t.index ["monster_id"], name: "index_monster_elements_on_monster_id"
   end
 
-  create_table "monster_items", force: :cascade do |t|
+  create_table "monster_weaknesses", force: :cascade do |t|
     t.bigint "monster_id", null: false
-    t.bigint "item_id", null: false
-    t.integer "stars"
-    t.string "monster_code"
-    t.string "item_code"
+    t.bigint "element_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_monster_items_on_item_id"
-    t.index ["monster_id"], name: "index_monster_items_on_monster_id"
-  end
-
-  create_table "monster_terrains", force: :cascade do |t|
-    t.bigint "monster_id", null: false
-    t.bigint "terrain_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["monster_id"], name: "index_monster_terrains_on_monster_id"
-    t.index ["terrain_id"], name: "index_monster_terrains_on_terrain_id"
+    t.index ["element_id"], name: "index_monster_weaknesses_on_element_id"
+    t.index ["monster_id"], name: "index_monster_weaknesses_on_monster_id"
   end
 
   create_table "monsters", force: :cascade do |t|
     t.string "name"
     t.string "key"
     t.integer "size"
-    t.integer "poison"
-    t.integer "paralysis"
-    t.integer "stun"
-    t.integer "sleep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "skill_levels", force: :cascade do |t|
-    t.bigint "skill_id", null: false
-    t.bigint "level_id", null: false
-    t.bigint "equipable_id", null: false
-    t.integer "power"
-    t.string "grade_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["equipable_id"], name: "index_skill_levels_on_equipable_id"
-    t.index ["level_id"], name: "index_skill_levels_on_level_id"
-    t.index ["skill_id"], name: "index_skill_levels_on_skill_id"
-  end
-
-  create_table "skills", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "stars", force: :cascade do |t|
-    t.integer "stars"
-    t.bigint "monster_id", null: false
-    t.integer "hp"
-    t.integer "raid_hp"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["monster_id"], name: "index_stars_on_monster_id"
-  end
-
-  create_table "terrains", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "weaknesses", force: :cascade do |t|
-    t.bigint "monster_id", null: false
-    t.bigint "element_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["element_id"], name: "index_weaknesses_on_element_id"
-    t.index ["monster_id"], name: "index_weaknesses_on_monster_id"
-  end
-
-  add_foreign_key "equipable_stats", "equipables"
+  add_foreign_key "equip_grade_items", "equip_grades"
+  add_foreign_key "equip_grade_items", "equips"
+  add_foreign_key "equip_grade_items", "items"
+  add_foreign_key "equip_grades", "equips"
   add_foreign_key "item_sources", "items"
+  add_foreign_key "location_areas", "areas"
+  add_foreign_key "location_areas", "locations"
+  add_foreign_key "monster_areas", "areas"
+  add_foreign_key "monster_areas", "monsters"
+  add_foreign_key "monster_elements", "elements"
+  add_foreign_key "monster_elements", "monsters"
+  add_foreign_key "monster_weaknesses", "elements"
+  add_foreign_key "monster_weaknesses", "monsters"
 end

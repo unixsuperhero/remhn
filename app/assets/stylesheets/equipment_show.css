@@ -1,0 +1,20 @@
+.equip_header {
+  position: relative;
+
+  .icon {
+    display: inline;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .name {
+    display: inline;
+    font-size: 38pt;
+    vertical-align: top;
+    position: absolute;
+    top: 10px;
+  }
+}

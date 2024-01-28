@@ -13,6 +13,25 @@
  *= require_tree .
  *= require_self
  */
+@import"https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@700&family=Overpass&display=swap";:root {
+    font-family: Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: dark light;
+    color: #ffffffde;
+    background-color: #1a1a1a;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "Overpass", system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "KaiTi", "KaiTi_GB2312", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
 
 table, tr, th, td {
   border: solid 1px black;
@@ -22,4 +41,8 @@ table, tr, th, td {
 
 th {
   text-align: left;
+}
+
+a {
+  text-decoration: none;
 }

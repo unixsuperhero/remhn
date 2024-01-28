@@ -1,5 +1,5 @@
 class EquipsController < ApplicationController
-  before_action :set_equip, only: %i[ show edit update destroy ]
+  expose(:equip)
 
   # GET /equips or /equips.json
   def index

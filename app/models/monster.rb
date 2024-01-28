@@ -1,4 +1,5 @@
 class Monster < ApplicationRecord
+  has_many :equips
   has_many :monster_areas
   has_many :areas, through: :monster_areas
   has_many :monster_elements

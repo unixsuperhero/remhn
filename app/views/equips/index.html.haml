@@ -1,43 +1,5 @@
 %h1 Listing equips
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Set name
-      %th Equip type
-      %th Equip subtype
-      %th Unlock
-      %th Starter
-      %th Event only
-      %th Atk scheme
-      %th Crit scheme
-      %th Elem scheme
-      %th Monster
-      %th Element
-      %th
-      %th
-      %th
+- Monster.all.each do |monster|
+  = render MonsterEquipment.new(monster)
 
-  %tbody
-    - @equips.each do |equip|
-      %tr
-        %td= equip.name
-        %td= equip.set_name
-        %td= equip.equip_type
-        %td= equip.equip_subtype
-        %td= equip.unlock
-        %td= equip.starter
-        %td= equip.event_only
-        %td= equip.atk_scheme
-        %td= equip.crit_scheme
-        %td= equip.elem_scheme
-        %td= equip.monster
-        %td= equip.element
-        %td= link_to 'Show', equip
-        %td= link_to 'Edit', edit_equip_path(equip)
-        %td= link_to 'Destroy', equip, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Equip', new_equip_path

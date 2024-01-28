@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem "sassc-rails"
 
 gem 'decent_exposure'
+gem 'view_component'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"

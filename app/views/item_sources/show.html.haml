@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-= render @item_source
-%div
-  = link_to "Edit this item source", edit_item_source_path(@item_source)
-  |
-  \#{link_to "Back to item sources", item_sources_path}
-  
-  \#{button_to "Destroy this item source", @item_source, method: :delete}

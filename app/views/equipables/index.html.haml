@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-%h1 Equipables
-#equipables
-  - @equipables.each do |equipable|
-    = render equipable
-    %p
-      = link_to "Show this equipable", equipable
-= link_to "New equipable", new_equipable_path

@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-%h1 Item sources
-#item_sources
-  - @item_sources.each do |item_source|
-    = render item_source
-    %p
-      = link_to "Show this item source", item_source
-= link_to "New item source", new_item_source_path

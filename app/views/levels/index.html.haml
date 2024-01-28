@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-%h1 Levels
-#levels
-  - @levels.each do |level|
-    = render level
-    %p
-      = link_to "Show this level", level
-= link_to "New level", new_level_path

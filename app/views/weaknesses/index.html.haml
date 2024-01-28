@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-%h1 Weaknesses
-#weaknesses
-  - @weaknesses.each do |weakness|
-    = render weakness
-    %p
-      = link_to "Show this weakness", weakness
-= link_to "New weakness", new_weakness_path

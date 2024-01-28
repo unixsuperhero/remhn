@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-%h1 Monster items
-#monster_items
-  - @monster_items.each do |monster_item|
-    = render monster_item
-    %p
-      = link_to "Show this monster item", monster_item
-= link_to "New monster item", new_monster_item_path

@@ -1,2 +1,0 @@
-module ItemStatsHelper
-end

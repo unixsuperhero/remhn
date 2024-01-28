@@ -1,8 +1,0 @@
-%p{:style => "color: green"}= notice
-= render @element
-%div
-  = link_to "Edit this element", edit_element_path(@element)
-  |
-  \#{link_to "Back to elements", elements_path}
-  
-  \#{button_to "Destroy this element", @element, method: :delete}

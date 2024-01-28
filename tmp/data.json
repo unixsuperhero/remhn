@@ -3,14 +3,14 @@
   "elements": [ "fire", "water", "thunder", "ice", "dragon" ],
   "eqTypes": [ "weapon", "helm", "mail", "gloves", "belt", "greaves" ],
   "weapons": {
-    "01": "shield-sword",
-    "02": "great-sword",
-    "03": "hammer",
-    "04": "long-sword",
-    "05": "light-gun",
-    "06": "bow",
-    "07": "dual-blades",
-    "08": "lance"
+    "shield-sword",
+    "great-sword",
+    "hammer",
+    "long-sword",
+    "light-gun",
+    "bow",
+    "dual-blades",
+    "lance"
   },
   "skills": [
     "火屬性攻擊強化",

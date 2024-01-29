@@ -12,9 +12,9 @@
 
   .name {
     display: inline;
-    font-size: 38pt;
+    font-size: 30pt;
     vertical-align: top;
     position: absolute;
-    top: 10px;
+    top: 16px;
   }
 }

@@ -4,7 +4,7 @@ class EquipLink < ViewComponent::Base
       = content
   HAML
 
-  attr_reader :equip, :selected
+  attr_reader :equip
 
   def initialize(equip)
     @equip = equip

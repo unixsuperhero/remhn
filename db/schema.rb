@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_28_085617) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_29_064259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,6 +78,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_085617) do
     t.index ["monster_id"], name: "index_equips_on_monster_id"
   end
 
+  create_table "item_sets", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.string "set_key"
+    t.string "set_subkey"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_sets_on_item_id"
+  end
+
   create_table "item_sources", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.string "source_type", null: false
@@ -91,8 +100,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_085617) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "rarity"
-    t.string "set_key"
-    t.string "set_subkey"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -151,6 +158,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_28_085617) do
   add_foreign_key "equip_grade_items", "equips"
   add_foreign_key "equip_grade_items", "items"
   add_foreign_key "equip_grades", "equips"
+  add_foreign_key "item_sets", "items"
   add_foreign_key "item_sources", "items"
   add_foreign_key "location_areas", "areas"
   add_foreign_key "location_areas", "locations"

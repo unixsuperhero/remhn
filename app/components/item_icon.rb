@@ -24,15 +24,19 @@ class ItemIcon < ViewComponent::Base
     item.name
   end
 
+  def item_set
+    item.item_sets.first
+  end
+
   def icon_path
     subdir =
-      case item.set_key
+      case item_set.set_subkey
       when 'l', 'z', 'j1', 'j2', 'k1', 'k2'
         ''
       else
-        [item.set_key, '/'].join
+        [item_set.set_key, '/'].join
       end
 
-    ['item/', subdir, item.set_subkey, '.png'].join
+    ['item/', subdir, item_set.set_subkey, '.png'].join
   end
 end

@@ -15,21 +15,21 @@ class EquipTable
 
   def table
     {
-      a: Item.find_by(set_key: set_key, set_subkey: a_key),
-      b: Item.find_by(set_key: set_key, set_subkey: :b),
-      c: Item.find_by(set_key: set_key, set_subkey: :c),
-      d: Item.find_by(set_key: set_key, set_subkey: :d),
-      e: Item.find_by(set_key: set_key, set_subkey: :e),
-      f: Item.find_by(set_key: :f, set_subkey: equip.f_code),
-      g: Item.find_by(set_key: :g, set_subkey: equip.g_code),
-      ha: Item.find_by(set_key: h_key, set_subkey: :a),
-      hb: Item.find_by(set_key: h_key, set_subkey: :b),
-      hc: Item.find_by(set_key: h_key, set_subkey: :c),
+      a: ItemSet.find_by(set_key: set_key, set_subkey: a_key)&.item,
+      b: ItemSet.find_by(set_key: set_key, set_subkey: :b)&.item,
+      c: ItemSet.find_by(set_key: set_key, set_subkey: :c)&.item,
+      d: ItemSet.find_by(set_key: set_key, set_subkey: :d)&.item,
+      e: ItemSet.find_by(set_key: set_key, set_subkey: :e)&.item,
+      f: ItemSet.find_by(set_key: :f, set_subkey: equip.f_code)&.item,
+      g: ItemSet.find_by(set_key: :g, set_subkey: equip.g_code)&.item,
+      ha: ItemSet.find_by(set_key: h_key, set_subkey: :a)&.item,
+      hb: ItemSet.find_by(set_key: h_key, set_subkey: :b)&.item,
+      hc: ItemSet.find_by(set_key: h_key, set_subkey: :c)&.item,
       **i_set,
-      j: Item.find_by(set_key: j_key),
-      k: Item.find_by(set_key: k_key),
-      l: Item.find_by(set_key: :l),
-      z: Item.find_by(set_key: :z),
+      j: ItemSet.find_by(set_key: j_key)&.item,
+      k: ItemSet.find_by(set_key: k_key)&.item,
+      l: ItemSet.find_by(set_key: :l)&.item,
+      z: ItemSet.find_by(set_key: :z)&.item,
     }.stringify_keys
   end
 
@@ -48,10 +48,10 @@ class EquipTable
 
     [*'b'..'e'].inject({}) do |h, subkey|
       k = ['i', subkey].join
-      item = Item.find_by(
+      item = ItemSet.find_by(
         set_key: alt_mon_key,
         set_subkey: subkey,
-      )
+      )&.item
 
       h.merge(k => item)
     end

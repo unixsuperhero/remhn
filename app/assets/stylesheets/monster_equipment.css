@@ -1,8 +1,7 @@
 .monster_equipment {
-  margin: 0 auto 8px;
-  width: 800px;
   border: solid 2px #aaa;
   padding: 12px;
+  margin-bottom: 8px;
 
   .part_icons {
     display: inline;
@@ -11,42 +10,5 @@
     .icon_list {
       display: inline;
     }
-  }
-}
-
-.monster_icon {
-  display: inline;
-  margin: 12px;
-
-  &.selected img {
-    border: solid 3px #1a1a1a;
-  }
-
-  img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .hover {
-    display: none;
-  }
-
-  &:hover .hover {
-    display: inline;
-  }
-}
-
-.equip_icon {
-  display: inline;
-  vertical-align: top;
-
-  &.selected img {
-    border: solid 1px rgba(255, 255, 255, 0.5);
-  }
-
-  img {
-    transform: translateY(7px);
-    width: 45px;
-    height: 45px;
   }
 }

@@ -1,0 +1,21 @@
+.monster_icon {
+  display: inline;
+  margin: 12px;
+
+  &.selected img {
+    border: solid 3px #1a1a1a;
+  }
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hover {
+    display: none;
+  }
+
+  &:hover .hover {
+    display: inline;
+  }
+}

@@ -22,6 +22,7 @@ class Equip < ApplicationRecord
 
   has_many :equip_grades
   has_many :equip_grade_items
+  has_many :grades, class_name: 'EquipGrade'
 
   scope :weapons, -> { where(equip_type: :weapon) }
   scope :armors, -> { where(equip_type: :armor) }

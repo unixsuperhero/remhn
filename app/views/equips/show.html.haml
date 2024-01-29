@@ -1,3 +1,8 @@
 %p#notice= notice
 
 = render EquipHeader.new(equip)
+
+= equip.grades.count
+- equip.unlock.upto(10).each do |grade_num|
+  = render EquipGradeRow.new(equip, grade_num)
+  %br/

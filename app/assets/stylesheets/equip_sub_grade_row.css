@@ -1,0 +1,5 @@
+.equip_sub_grade_row {
+  .item_lists {
+    display: flex;
+  }
+}

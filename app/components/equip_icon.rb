@@ -15,11 +15,14 @@ class EquipIcon < ViewComponent::Base
   end
 
   def src
-    url = 'part/%s.png' % equip.equip_subtype
-    image_url(url)
+    image_url(icon_path)
   end
 
   def title
     equip.display_title
+  end
+
+  def icon_path
+    ['part/', equip.equip_subtype, '.png'].join
   end
 end

@@ -16,11 +16,14 @@ class MonsterIcon < ViewComponent::Base
   end
 
   def src
-    url = 'monster/%s.png' % monster.key
-    image_url(url)
+    image_url(icon_path)
   end
 
   def title
     monster.name
+  end
+
+  def icon_path
+    ['monster/', monster.key, '.png'].join
   end
 end

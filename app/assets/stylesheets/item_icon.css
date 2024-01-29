@@ -1,0 +1,48 @@
+.item_icon {
+  display: grid;
+  position: relative;
+  width: 80px;
+  height: 90px;
+  background-color: black;
+  border: solid 2px green;
+  border-radius: 6px;
+  margin-right: 10px;
+
+  .icon {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    transform: translateY(-8px);
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .qty {
+    background-color: red;
+    color: white;
+    border-radius: 4px 4px 0 0;
+    font-size: 9pt;
+    width: 95%;
+    height: 13px;
+    text-align: center;
+    line-height: 1;
+    padding: 2px;
+  }
+
+  .text {
+    font-size: 8pt;
+    border-radius: 0 0 4px 4px;
+    color: black;
+    line-height: 1;
+    min-width: 0;
+    height: 2.1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+  }
+}

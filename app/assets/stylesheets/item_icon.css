@@ -23,20 +23,21 @@
     display: grid;
     color: white;
     font-size: 9pt;
-    transform: translateY(3px);
+    transform: translateY(1px);
   }
 
   .qty {
     display: grid;
     color: white;
     font-size: 9pt;
+    transform: translateY(4px);
   }
 
   .text {
     display: grid;
     font-size: 8pt;
     color: black;
-    min-width: 110px;
+    min-width: 120px;
     margin: 4px;
     vertical-align: middle;
   }

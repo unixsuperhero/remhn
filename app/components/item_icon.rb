@@ -5,15 +5,16 @@ class ItemIcon < ViewComponent::Base
         %img{ src: src, title: title }
       .text
         .name= item.name
-        .qty= grade_item.qty
+        - if grade_item
+          .qty= grade_item.qty
   HAML
 
   attr_reader :equip, :grade_item, :item
 
-  def initialize(equip, grade_item)
+  def initialize(equip, grade_item: nil, item: nil)
     @equip = equip
     @grade_item = grade_item
-    @item = grade_item.item
+    @item = item || grade_item.item
   end
 
   def src

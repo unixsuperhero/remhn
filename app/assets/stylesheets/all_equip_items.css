@@ -1,0 +1,9 @@
+.all_equip_items {
+  display: flex;
+  flex-wrap: wrap;
+
+  .item_icon {
+    width: 160px;
+    margin-bottom: 12px;
+  }
+}

@@ -1,19 +1,8 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
-@import"https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@700&family=Overpass&display=swap";:root {
+@import"https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@700&family=Overpass&family=Overpass:wght@700&display=swap";:root {
     font-family: Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -31,6 +20,7 @@ body {
   background-color: #1a1a1a;
   color: rgba(255, 255, 255, 0.6);
   font-family: "Overpass", system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "KaiTi", "KaiTi_GB2312", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: normal;
 }
 
 #page_wrapper {
@@ -50,4 +40,9 @@ th {
 
 a {
   text-decoration: none;
+}
+
+strong, b {
+  font-family: "Overpass";
+  font-weight: 700;
 }

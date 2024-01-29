@@ -3,19 +3,19 @@ class GradeStats < ViewComponent::Base
     .grade_stats
       - if sub_grade.atk_power
         .stat
-          %strong ATK
+          %strong ATK:
           = sub_grade.atk_power
       - if sub_grade.crit_power
         .stat
-          %strong CRIT
+          %strong CRIT:
           = [sub_grade.crit_power, '%'].join
       - if sub_grade.elem_power
         .stat
-          %strong ELEM
+          %strong ELEM:
           = sub_grade.elem_power
       - if sub_grade.def_power
         .stat
-          %strong DEF
+          %strong DEF:
           = sub_grade.def_power
   HAML
 

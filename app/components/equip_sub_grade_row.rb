@@ -3,9 +3,10 @@ class EquipSubGradeRow < ViewComponent::Base
     .equip_sub_grade_row
       .text
         = grade_number
-      .item_lists
+      -#.item_lists
         - sub_grade.grade_items.each do |grade_item|
           = render ItemIcon.new(equip, grade_item)
+        %br/
       .item_lists
         - sub_grade.grade_items.each do |grade_item|
           = render ItemIcon2.new(equip, grade_item)

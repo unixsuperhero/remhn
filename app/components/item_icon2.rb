@@ -25,6 +25,13 @@ class ItemIcon2 < ViewComponent::Base
   end
 
   def icon_path
-    EquipItemIcon.path_for(equip, item)
+    subdir =
+      if item.set_key == item.set_subkey
+        ''
+      else
+        [item.set_key, '/'].join
+      end
+
+    ['item/', subdir, item.set_subkey, '.png'].join
   end
 end

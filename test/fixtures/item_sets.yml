@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  set_key: MyString
+  set_subkey: MyString
+
+two:
+  item: two
+  set_key: MyString
+  set_subkey: MyString

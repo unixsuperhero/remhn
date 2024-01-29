@@ -22,7 +22,7 @@ rails g scaffold Monster name key size:integer
 rails g scaffold Equip name set_name equip_type:integer equip_subtype:integer unlock:integer starter:boolean event_only:boolean {atk,crit,elem}_scheme monster:references element:references
 
 # db/migrate/20240120235834_create_items.rb
-# rails g scaffold Item name item_type:integer rarity:integer
+rails g scaffold Item name rarity:integer
 
 # db/migrate/20240126014340_create_equipable_stats.rb
 
@@ -44,6 +44,7 @@ rails g migration create_monster_areas monster:references area:references
 rails g migration create_equip_grades name {grade,sub_grade}:integer {atk,crit,elem,def}_power:integer forge:boolean equip:references
 rails g migration create_equip_grade_items {equip,equip_grade,item}:references qty:integer
 rails g migration create_item_sources item:references source:references{polymorphic}
+rails g migration create_item_sets item:references set_{,sub}key:string
 rails g model LocationArea location:references area:references
 rails g model MonsterElement {monster,element}:references
 rails g model MonsterWeakness monster:references element:references
@@ -51,3 +52,4 @@ rails g model MonsterArea monster:references area:references
 rails g model EquipGrade name {grade,sub_grade}:integer {atk,crit,elem,def}_power:integer forge:boolean equip:references
 rails g model EquipGradeItem {equip,equip_grade,item}:references qty:integer
 rails g model ItemSource item:references source:references{polymorphic}
+rails g model ItemSet item:references set_{,sub}key:string

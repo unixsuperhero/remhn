@@ -1,0 +1,7 @@
+.grade_stats {
+  display: flex;
+
+  .stat {
+    margin-right: 12px;
+  }
+}

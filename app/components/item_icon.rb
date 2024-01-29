@@ -1,12 +1,11 @@
 class ItemIcon < ViewComponent::Base
   haml_template <<~HAML
     .item_icon
-      .qty
-        = grade_item.qty
       .icon
         %img{ src: src, title: title }
       .text
-        = item.name
+        .name= item.name
+        .qty= grade_item.qty
   HAML
 
   attr_reader :equip, :grade_item, :item
@@ -26,6 +25,14 @@ class ItemIcon < ViewComponent::Base
   end
 
   def icon_path
-    EquipItemIcon.path_for(equip, item)
+    subdir =
+      case item.set_key
+      when 'l', 'z', 'j1', 'j2', 'k1', 'k2'
+        ''
+      else
+        [item.set_key, '/'].join
+      end
+
+    ['item/', subdir, item.set_subkey, '.png'].join
   end
 end

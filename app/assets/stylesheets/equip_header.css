@@ -1,5 +1,5 @@
 .equip_header {
-  position: relative;
+  display: flex;
 
   .icon {
     display: inline;
@@ -11,10 +11,9 @@
   }
 
   .name {
-    display: inline;
     font-size: 30pt;
     vertical-align: top;
-    position: absolute;
-    top: 16px;
+    position: relative;
+    top: 14px;
   }
 }

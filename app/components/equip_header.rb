@@ -3,8 +3,9 @@ class EquipHeader < ViewComponent::Base
     .equip_header
       .icon
         %img{ src: image_url(src), title: title }/
-      .name= equip.set_name
-      -#.hover= title
+      .text
+        .name= equip.set_name
+        .type= title
   HAML
 
   attr_reader :equip, :selected

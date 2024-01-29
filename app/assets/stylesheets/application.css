@@ -31,11 +31,11 @@ body {
   background-color: #1a1a1a;
   color: rgba(255, 255, 255, 0.6);
   font-family: "Overpass", system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "KaiTi", "KaiTi_GB2312", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
 
-  #page_wrapper {
-    margin: 0 auto;
-    width: 800px;
-  }
+#page_wrapper {
+  margin: 0 auto;
+  width: 800px;
 }
 
 table, tr, th, td {

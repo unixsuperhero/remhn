@@ -16,8 +16,12 @@
     -webkit-text-size-adjust: 100%
 }
 
+:root {
+  --bg-color: #1a1a1a;
+}
+
 body {
-  background-color: #1a1a1a;
+  background-color: var(--bg-color);
   color: rgba(255, 255, 255, 0.6);
   font-family: "Overpass", system-ui, -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "KaiTi", "KaiTi_GB2312", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: normal;

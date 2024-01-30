@@ -3,14 +3,14 @@ class MonsterEquipment < ViewComponent::Base
     .monster_equipment
       = render MonsterLink.new(monster) do
         = render MonsterIcon.new(monster)
-      .part_icons
+      .equip_icons
         .icon_list
-          - monster.equips.weapons.each.with_index do |part, i|
-            = render EquipLink.new(part) do
-              = render EquipIcon.new(part, part_selected?(part))
-          - monster.equips.armors.each do |part|
-            = render EquipLink.new(part) do
-              = render EquipIcon.new(part, part_selected?(part))
+          - monster.equips.weapons.each.with_index do |equip, i|
+            = render EquipLink.new(equip) do
+              = render EquipIcon.new(equip, selected?(equip))
+          - monster.equips.armors.each do |equip|
+            = render EquipLink.new(equip) do
+              = render EquipIcon.new(equip, selected?(equip))
   HAML
 
   attr_reader :monster, :selected
@@ -20,7 +20,7 @@ class MonsterEquipment < ViewComponent::Base
     @selected = selected
   end
 
-  def part_selected?(part)
-    selected == part
+  def selected?(equip)
+    selected == equip
   end
 end

@@ -2,14 +2,14 @@
 
 %p
   %b Name:
-  = @monster.name
+  = monster.name
 %p
   %b Key:
-  = @monster.key
+  = monster.key
 %p
   %b Size:
-  = @monster.size
+  = monster.size
 
-= link_to 'Edit', edit_monster_path(@monster)
+= link_to 'Edit', edit_monster_path(monster)
 \|
 = link_to 'Back', monsters_path

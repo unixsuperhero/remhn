@@ -5,13 +5,19 @@ class EquipIcon < ViewComponent::Base
   HAML
 
   attr_reader :equip, :selected
+  attr_reader :opts
 
-  def initialize(equip, selected=false)
+  def initialize(equip, selected=false, **opts)
     @equip, @selected = equip, selected
+    @opts = opts
   end
 
   def classes
-    selected ? 'selected' : ''
+    classes = []
+    classes << 'selected' if selected
+    classes << 'small' if opts[:small]
+
+    classes.join(' ')
   end
 
   def src

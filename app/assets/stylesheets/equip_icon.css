@@ -7,10 +7,16 @@
     width: 45px;
     height: 45px;
     border: solid 1px var(--transparent-bg);
+
   }
 
   img:hover {
-    border: solid 1px rgba(255, 255, 255, 0.5);
+    border: solid 1px rgba(255, 255, 255, 0.3);
+  }
+
+  &.small img {
+    width: 24px;
+    height: 24px;
   }
 
   &.selected img {

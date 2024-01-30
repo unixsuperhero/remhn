@@ -1,5 +1,6 @@
 class MonstersController < ApplicationController
-  before_action :set_monster, only: %i[ show edit update destroy ]
+  expose(:monster)
+  expose(:monsters) { Monster.all.order(size: :desc, name: :asc) }
 
   # GET /monsters or /monsters.json
   def index

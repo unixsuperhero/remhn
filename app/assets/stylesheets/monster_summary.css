@@ -1,0 +1,34 @@
+.monster_summary {
+  display: flex;
+  padding: 12px;
+
+  .icon {
+    margin-right: 12px;
+
+    img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .text .name {
+    font-size: 20pt;
+    line-height: 1;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .text .size {
+    font-family: Arial;
+    font-style: italic;
+  }
+
+  .equipables {
+    .equip_icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

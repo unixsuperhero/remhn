@@ -2,7 +2,7 @@ class EquipGradeRow < ViewComponent::Base
   haml_template <<~HAML
     .equip_grade_row.collapsed{ 'data-controller': 'equip-grade-row' }
       .text{ 'data-action': 'click->equip-grade-row#toggleRow' }
-        %i.fa-solid.fa-caret-right{ 'data-equip-grade-row-target': 'stateIcon' }
+        %i.fa-solid.fa-caret-right{ 'data-equip-grade-row-target': 'collapsedIcon' }
         Grade:
         = grade_num
       .grade_list{ 'data-equip-grade-row-target': 'gradeList' }

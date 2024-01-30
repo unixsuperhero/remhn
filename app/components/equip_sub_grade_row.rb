@@ -20,11 +20,6 @@ class EquipSubGradeRow < ViewComponent::Base
     @sub_grade = sub_grade
   end
 
-  def item_icon(grade_item)
-    path = EquipItemIcon.path_for(equip, grade_item.item)
-    image_url(path)
-  end
-
   def item_title(grade_item)
     grade_item.item.name
   end

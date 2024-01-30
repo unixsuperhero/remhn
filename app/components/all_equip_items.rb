@@ -12,14 +12,6 @@ class AllEquipItems < ViewComponent::Base
     @equip = equip
   end
 
-  def src
-    'part/%s.png' % equip.equip_subtype
-  end
-
-  def title
-    equip.display_title
-  end
-
   def all_items
     EquipTable.for(equip).values.compact
   end

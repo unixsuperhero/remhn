@@ -3,9 +3,16 @@
 = render EquipHeader.new(equip)
 
 %hr/
+
+%h2 All Items
+
 = render AllEquipItems.new(equip)
+
 %hr/
+
+%h2 Grades
 
 - equip.unlock.upto(10).each do |grade_num|
   = render EquipGradeRow.new(equip, grade_num)
+
   %br/

@@ -1,10 +1,11 @@
 class EquipGradeRow < ViewComponent::Base
   haml_template <<~HAML
-    .equip_grade_row.collapsed{ 'data-controller': 'equipGradeRow' }
-      .text
+    .equip_grade_row.collapsed{ 'data-controller': 'equip-grade-row' }
+      .text{ 'data-action': 'click->equip-grade-row#toggleRow' }
+        %i.fa-solid.fa-caret-right{ 'data-equip-grade-row-target': 'stateIcon' }
         Grade:
         = grade_num
-      .grade_list
+      .grade_list{ 'data-equip-grade-row-target': 'gradeList' }
         - sub_grades.each do |sub_grade|
           = render EquipSubGradeRow.new(equip, sub_grade)
   HAML

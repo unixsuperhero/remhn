@@ -1,4 +1,20 @@
 .equip_sub_grade_row {
+  margin-top: 14px;
+
+  .text {
+    span.small_text {
+      font-size: 10pt;
+    }
+    span.large_text {
+      display: inline-block;
+      font-size: 15pt;
+      width: 10px;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+    }
+  }
+
   .item_lists {
     display: flex;
   }

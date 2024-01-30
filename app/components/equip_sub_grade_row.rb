@@ -2,8 +2,11 @@ class EquipSubGradeRow < ViewComponent::Base
   haml_template <<~HAML
     .equip_sub_grade_row
       .text
-        = grade_number
-        = render GradeStats.new(sub_grade)
+        %span
+          %span.small_text Lv.
+          %span.large_text= sub_grade.sub_grade
+          %span.small_text /5
+          = render GradeStats.new(sub_grade)
       .item_lists
         - sub_grade.grade_items.each do |grade_item|
           = render ItemIcon.new(equip, grade_item: grade_item)
@@ -15,10 +18,6 @@ class EquipSubGradeRow < ViewComponent::Base
   def initialize(equip, sub_grade)
     @equip = equip
     @sub_grade = sub_grade
-  end
-
-  def grade_number
-    sprintf('%s.%s', sub_grade.grade, sub_grade.sub_grade)
   end
 
   def item_icon(grade_item)

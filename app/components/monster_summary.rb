@@ -2,11 +2,12 @@ class MonsterSummary < ViewComponent::Base
   haml_template <<~HAML
     .monster_summary
       .icon
-        = link_to monster_path(monster) do
+        = render MonsterLink.new(monster) do
           %img{ src: image_url(src), title: title }/
       .text
         .name
-          = link_to monster.name, monster_path(monster)
+          = render MonsterLink.new(monster) do
+            = monster.name
         .size= monster.size
         .equipables
           - equips.each do |equip|

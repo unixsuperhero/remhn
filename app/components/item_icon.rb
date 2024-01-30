@@ -1,6 +1,6 @@
 class ItemIcon < ViewComponent::Base
   haml_template <<~HAML
-    .item_icon
+    .item_icon{ class: rarity_class }
       .icon
         %img{ src: src, title: title }
       .text
@@ -15,6 +15,10 @@ class ItemIcon < ViewComponent::Base
     @equip = equip
     @grade_item = grade_item
     @item = item || grade_item.item
+  end
+
+  def rarity_class
+    ['r', item.rarity].join
   end
 
   def src

@@ -1,13 +1,12 @@
 class EquipGradeRow < ViewComponent::Base
   haml_template <<~HAML
-    .equip_grade_row
+    .equip_grade_row.collapsed{ 'data-controller': 'equipGradeRow' }
       .text
         Grade:
         = grade_num
       .grade_list
         - sub_grades.each do |sub_grade|
           = render EquipSubGradeRow.new(equip, sub_grade)
-          %br/
   HAML
 
   attr_reader :equip, :grade_num

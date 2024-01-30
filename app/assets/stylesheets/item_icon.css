@@ -8,6 +8,34 @@
   padding: 4px;
   line-height: 1;
 
+  &.r0 {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.r1 {
+    border-color: #92abab;
+  }
+
+  &.r2 {
+    border-color: #49b955;
+  }
+
+  &.r3 {
+    border-color: #4b8ac9;
+  }
+
+  &.r4 {
+    border-color: #c26ae1;
+  }
+
+  &.r5 {
+    border-color: #f0b73b;
+  }
+
+  &.r6 {
+    border-color: #fc6b6b;
+  }
+
   .icon {
     position: relative;
     text-align: center;

@@ -1,0 +1,9 @@
+.equip_grade_row {
+  .grade_list {
+    display: block;
+  }
+
+  &.collapsed .grade_list {
+    display: none;
+  }
+}

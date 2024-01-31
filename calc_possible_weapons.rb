@@ -4,6 +4,21 @@ item_data = [294,179,76,8,255,274,75,69,34,5,273,257,102,67,30,3,263,295,57,47,3
 
 equip_data = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"4_4",nil,"5_4",nil,nil,nil,nil,nil,nil,"3_4",nil,nil,nil,nil,nil,nil,nil,nil,"2_3",nil,nil,"7_4",nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"2_4","3_5","3_4",nil,nil,nil,nil,nil,nil,nil,nil,"4_4",nil,"4_4",nil,"2_4",nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"5_2","5_4",nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"6_2",nil,nil,nil,nil,nil,nil,nil,nil,nil,"5_2",nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"5_2",nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"4_4",nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,"3_4"]
 
+# class NextGrade
+#   def initialize(current_grade, lowest_grade)
+#   def next_grade
+# class ItemTracker
+#   def initialize(items)
+#   def apply_grade(grade)
+#   def have_all_items?(grade_items)
+#   def use_all_items(grade_items)
+# class Weapon
+#   def initialize(weapon, equip_data)
+#   def current_grade
+#   def first_grade
+#   def highest_grade(tracker)
+#   def grades
+
 class NextGrade
   attr_reader :current_grade, :lowest_grade
   def initialize(current_grade, lowest_grade)

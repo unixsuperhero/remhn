@@ -71,37 +71,58 @@ class ItemTracker
   end
 end
 
-File.open('output.log', 'a') do |log|
-  can_do = []
-  Equip.weapons.each do |weap|
-    log.puts
-    tracker = ItemTracker.new(item_data.dup)
-    possible = false
-    last = nil
-    fst = weap.equip_grades.order(:grade, :sub_grade).first
-    grade, subgrade = NextGrade.new(equip_data[weap.id - 1], fst).next_grade
-    weap.equip_grades.where("grade >= ? AND sub_grade >= ?", grade, subgrade).order(:grade, :sub_grade).each do |gr|
-      tracker.apply_grade(gr)
+class Weapon
+  attr_reader :weapon, :equip_data
+
+  def initialize(weapon, equip_data)
+    @weapon = weapon
+    @equip_data = equip_data
+  end
+
+  def current_grade
+    equip_data[weapon.id - 1]
+  end
+
+  def first_grade
+    @first_grade ||= grades.first
+  end
+
+  def highest_grade(tracker)
+    g, s = NextGrade.new(current_grade, first_grade).next_grade
+
+    grades.where('grade >= ? AND sub_grade >= ?', g, s).each do |grade|
+      tracker.apply_grade(grade)
 
       next unless tracker.done
 
       if tracker.possible
-        can_do << [weap.id, tracker.last_grade]
+        return tracker.last_grade
       end
 
       break
     end
   end
 
-  File.open('can_do.csv', 'w+') do |csv|
-    csv.puts CSV.generate_line(['monster_name', 'sub_type', 'grade', 'sub_grade', 'atk', 'crit', 'elem']).strip
-    equip_ids = can_do.map(&:first)
-    equips = Equip.where(id: equip_ids).includes(:monster).to_a
-    can_do.each do |x, (y, z)|
-      eq = equips.find{|equ| equ.id == x }
-      log.puts monster: eq.monster&.name, eq_subtype: eq.equip_subtype, up_to: [y, z].join(?/)
-      mgr = eq.equip_grades.find_by(grade: y, sub_grade: z)
-      csv.puts CSV.generate_line([eq.monster&.name, eq.equip_subtype, mgr.grade, mgr.sub_grade, mgr.atk_power, mgr.crit_power, mgr.elem_power]).strip
-    end
+  def grades
+    @grades ||= weapon.equip_grades.order(:grade, :sub_grade)
+  end
+end
+
+can_do = []
+Equip.weapons.each do |weap|
+  tracker = ItemTracker.new(item_data.dup)
+  weapon = Weapon.new(weap, equip_data)
+
+  if highest_grade = weapon.highest_grade(tracker)
+    can_do << [weap, highest_grade]
+  end
+end
+
+File.open('can_do.csv', 'w+') do |csv|
+  csv.puts CSV.generate_line(['monster_name', 'sub_type', 'grade', 'sub_grade', 'atk', 'crit', 'elem']).strip
+
+  can_do.sort_by{|_, arr| arr.join }.reverse.each do |weap, (y, z)|
+    mgr = weap.equip_grades.find_by(grade: y, sub_grade: z)
+    csv.puts CSV.generate_line([weap.monster&.name, weap.equip_subtype, mgr.grade, mgr.sub_grade, mgr.atk_power, mgr.crit_power, mgr.elem_power]).strip
   end
 end

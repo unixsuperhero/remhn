@@ -28,9 +28,25 @@ body {
   font-weight: normal;
 }
 
+nav {
+  padding-top: 12px;
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+
+    li {
+      list-style: none;
+      margin-right: 12px;
+    }
+  }
+}
+
 #page_wrapper {
   margin: 0 auto;
-  width: 800px;
+  width: 75%;
 }
 
 table, tr, th, td {

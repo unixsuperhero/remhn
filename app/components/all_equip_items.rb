@@ -13,6 +13,10 @@ class AllEquipItems < ViewComponent::Base
   end
 
   def all_items
-    EquipTable.for(equip).values.compact
+    EquipTable
+      .for(equip)
+      .values
+      .compact
+      .sort_by(&:sort_order)
   end
 end

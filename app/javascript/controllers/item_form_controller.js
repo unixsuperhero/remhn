@@ -11,16 +11,8 @@ export default class extends Controller {
     let inputs = this.element.getElementsByTagName('input');
     for(let i=0; i < inputs.length; ++i) {
       let item_id = inputs[i].dataset.item_id;
-      itembox[item_id] = itembox[item_id] || ['', ''];
-      if(inputs[i].dataset.data_type == 'count') {
-        if(typeof itembox[item_id][0] !== "undefined") {
-          inputs[i].value = itembox[item_id][0];
-        }
-      }
-      if(inputs[i].dataset.data_type == 'position') {
-        if(typeof itembox[item_id][1] !== "undefined") {
-          inputs[i].value = itembox[item_id][1];
-        }
+      if(itembox.length >= item_id) {
+        inputs[i].value = itembox[item_id];
       }
     }
   }
@@ -29,14 +21,7 @@ export default class extends Controller {
     const input = event.target;
     let raw_box = localStorage.getItem('itemBox') || '[]';
     let itembox = JSON.parse(raw_box);
-    let result = itembox[input.dataset.item_id] || [];
-    if(input.dataset.data_type == 'count') {
-      result[0] = input.value;
-    }
-    if(input.dataset.data_type == 'position') {
-      result[1] = input.value;
-    }
-    itembox[input.dataset.item_id] = result;
+    itembox[input.dataset.item_id] = input.value
     localStorage.setItem('itemBox', JSON.stringify(itembox));
   }
 }

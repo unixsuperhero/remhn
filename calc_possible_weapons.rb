@@ -29,32 +29,42 @@ class NextGrade
   end
 end
 
+class ItemTracker
+  attr_reader :items
+
+  def initialize(items)
+    @items = items
+  end
+
+  def have_all_items?(grade_items)
+    grade_items.all? { |grade_item|
+      qty_remaining = items[grade_item.item_id - 1] || 0
+      qty_remaining >= grade_item.qty
+    }
+  end
+
+  def use_all_items(grade_items)
+    grade_items.each { |grade_item|
+      items[grade_item.item_id - 1] -= grade_item.qty
+    }
+  end
+end
+
 File.open('output.log', 'a') do |log|
   can_do = []
   Equip.weapons.each do |weap|
     log.puts
-    temp_items = item_data.dup
+    tracker = ItemTracker.new(item_data.dup)
     possible = false
     last = nil
     fst = weap.equip_grades.order(:grade, :sub_grade).first
     grade, subgrade = NextGrade.new(equip_data[weap.id - 1], fst).next_grade
     weap.equip_grades.where("grade >= ? AND sub_grade >= ?", grade, subgrade).order(:grade, :sub_grade).each do |gr|
-      egis = gr.equip_grade_items
-      log.puts egis.map{|egi| [egi.item.name, egi.qty] }
-      can = egis.all? {|egi|
-        t_qty = temp_items[egi.item_id - 1] || 0
-        n_qty = egi.qty
-        log.puts item: egi.item.name, t_qty: t_qty, n_qty: n_qty
-        t_qty >= n_qty
-      }
-
-      if can
+      grade_items = gr.equip_grade_items
+      if tracker.have_all_items?(grade_items)
         possible = true
         last = [gr.grade, gr.sub_grade]
-        log.puts CAN: gr.equip_id, last: last
-        egis.each do |egi|
-          temp_items[egi.item_id - 1] -= egi.qty
-        end
+        tracker.use_all_items(grade_items)
       else
         if possible
           can_do << [gr.equip_id, last]

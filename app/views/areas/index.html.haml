@@ -1,21 +1,9 @@
-%h1 Listing areas
+.areas_index
+  %h1 Areas
+  .areas
+    - Area.all.each do |area|
+      .area
+        = render AreaLink.new(area) do
+          = render AreaIcon.new(area)
+          .name= area.name
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
-
-  %tbody
-    - @areas.each do |area|
-      %tr
-        %td= area.name
-        %td= link_to 'Show', area
-        %td= link_to 'Edit', edit_area_path(area)
-        %td= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Area', new_area_path

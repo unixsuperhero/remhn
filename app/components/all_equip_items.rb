@@ -2,8 +2,7 @@ class AllEquipItems < ViewComponent::Base
   haml_template <<~HAML
     .all_equip_items
       - all_items.each do |i|
-        .equip_item
-          = render ItemBadge.new(i)
+        = render ItemBadge.new(i)
 
   HAML
 

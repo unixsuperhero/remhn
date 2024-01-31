@@ -1,8 +1,4 @@
 .all_equip_items {
   display: flex;
   flex-wrap: wrap;
-
-  .equip_item {
-    margin-right: 4px;
-  }
 }

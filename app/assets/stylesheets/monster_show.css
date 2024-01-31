@@ -1,0 +1,19 @@
+.monster_show {
+  .areas {
+    display: flex;
+  }
+
+  .equip_list {
+    display: flex;
+
+    .weapon_wrapper, .armor_wrapper {
+      margin: 0 24px 0 0;
+
+      .weapon_list, .armor_list {
+        display: flex;
+        border: solid 1px gray;
+        margin: 0 2px;
+      }
+    }
+  }
+}

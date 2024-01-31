@@ -1,15 +1,31 @@
 %p#notice= notice
 
-= render MonsterHeader.new(monster)
+.monster_show
+  .header
+    = render MonsterHeader.new(monster)
 
-%hr/
+  %hr/
 
-%h3 Found In:
+  %h3 Found In:
 
-- monster.areas.each do |area|
-  = render AreaIcon.new(area)
+  .areas
+    - monster.areas.each do |area|
+      = render AreaLink.new(area) do
+        = render AreaIcon.new(area)
 
-%hr/
+  %hr/
 
-%h3 Equipment:
+  %h3 Equipment:
 
+  .equip_list
+    .weapon_wrapper
+      %strong Weapons:
+      %br/
+      - monster.weapons.each do |weapon|
+        = render EquipIcon.new(weapon)
+
+    .armor_wrapper
+      %strong Armor:
+      %br/
+      - monster.armors.each do |armor|
+        = render EquipIcon.new(armor)

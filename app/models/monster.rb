@@ -8,4 +8,12 @@ class Monster < ApplicationRecord
   has_many :weaknesses, through: :monster_weaknesses, as: :element
 
   enum size: { large: 1, small: 2 }
+
+  def weapons
+    equips.weapons
+  end
+
+  def armors
+    equips.armors
+  end
 end

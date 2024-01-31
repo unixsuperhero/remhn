@@ -1,6 +1,6 @@
 class MonstersController < ApplicationController
   expose(:monster)
-  expose(:monsters) { Monster.all.order(size: :desc, name: :asc) }
+  expose(:monsters) { Monster.all.order(size: :desc, id: :asc) }
 
   # GET /monsters or /monsters.json
   def index

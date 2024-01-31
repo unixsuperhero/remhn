@@ -31,9 +31,26 @@ end
 
 class ItemTracker
   attr_reader :items
+  attr_reader :last_possible_grade
+  attr_reader :possible
+  attr_reader :done
 
   def initialize(items)
     @items = items
+    @possible = false
+    @done = false
+  end
+
+  def apply_grade(grade)
+    grade_items = grade.equip_grade_items
+
+    if have_all_items?(grade_items)
+      use_all_items(grade_items)
+      @possible = true
+      @last_possible_grade = grade
+    else
+      @done = true
+    end
   end
 
   def have_all_items?(grade_items)
@@ -48,6 +65,10 @@ class ItemTracker
       items[grade_item.item_id - 1] -= grade_item.qty
     }
   end
+
+  def last_grade
+    [last_possible_grade.grade, last_possible_grade.sub_grade]
+  end
 end
 
 File.open('output.log', 'a') do |log|
@@ -60,17 +81,15 @@ File.open('output.log', 'a') do |log|
     fst = weap.equip_grades.order(:grade, :sub_grade).first
     grade, subgrade = NextGrade.new(equip_data[weap.id - 1], fst).next_grade
     weap.equip_grades.where("grade >= ? AND sub_grade >= ?", grade, subgrade).order(:grade, :sub_grade).each do |gr|
-      grade_items = gr.equip_grade_items
-      if tracker.have_all_items?(grade_items)
-        possible = true
-        last = [gr.grade, gr.sub_grade]
-        tracker.use_all_items(grade_items)
-      else
-        if possible
-          can_do << [gr.equip_id, last]
-        end
-        break
+      tracker.apply_grade(gr)
+
+      next unless tracker.done
+
+      if tracker.possible
+        can_do << [weap.id, tracker.last_grade]
       end
+
+      break
     end
   end
 

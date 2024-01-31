@@ -1,0 +1,27 @@
+.monster_header {
+  display: flex;
+
+  .icon {
+    display: inline;
+    margin-right: 12px;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .name {
+    font-size: 30pt;
+    vertical-align: top;
+    position: relative;
+    top: 14px;
+  }
+
+  .text {
+    .size {
+      font-family: sans-serif;
+      font-style: italic;
+    }
+  }
+}

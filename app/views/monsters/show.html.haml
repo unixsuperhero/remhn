@@ -1,15 +1,15 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = monster.name
-%p
-  %b Key:
-  = monster.key
-%p
-  %b Size:
-  = monster.size
+= render MonsterHeader.new(monster)
 
-= link_to 'Edit', edit_monster_path(monster)
-\|
-= link_to 'Back', monsters_path
+%hr/
+
+%h3 Found In:
+
+- monster.areas.each do |area|
+  = render AreaIcon.new(area)
+
+%hr/
+
+%h3 Equipment:
+

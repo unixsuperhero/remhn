@@ -10,11 +10,12 @@ class ItemIcon < ViewComponent::Base
           .qty= grade_item.qty
   HAML
 
-  attr_reader :item, :grade_item
+  attr_reader :equip, :grade_item, :item
 
-  def initialize(item)
-    @item = item
-    @grade_item = nil
+  def initialize(equip, grade_item: nil, item: nil)
+    @equip = equip
+    @grade_item = grade_item
+    @item = item || grade_item&.item
   end
 
   def rarity_class

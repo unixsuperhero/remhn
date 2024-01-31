@@ -21,7 +21,8 @@ class Equip < ApplicationRecord
   belongs_to :alt_monster, optional: true, class_name: 'Monster', foreign_key: 'alt_monster_id'
 
   has_many :equip_grades
-  has_many :equip_grade_items
+  has_many :equip_grade_items, through: :equip_grades
+  has_many :items, through: :equip_grade_items
   has_many :grades, class_name: 'EquipGrade'
 
   scope :weapons, -> { where(equip_type: :weapon) }

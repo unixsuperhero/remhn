@@ -2,8 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  .item_icon {
-    width: 160px;
-    margin-bottom: 12px;
+  .equip_item {
+    margin-right: 4px;
   }
 }

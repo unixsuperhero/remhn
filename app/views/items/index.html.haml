@@ -1,8 +1,8 @@
-%p{:style => "color: green"}= notice
 %h1 Items
 #items
-  - @items.each do |item|
-    = render item
-    %p
-      = link_to "Show this item", item
-= link_to "New item", new_item_path
+  - ItemSets.all_by_set.each do |title, items|
+    %h3= title
+
+    - items.each do |item|
+      .item_set{ style: 'display: inline-block;' }
+        = render ItemBadge.new(item)

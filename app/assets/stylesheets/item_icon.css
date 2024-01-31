@@ -1,12 +1,11 @@
 .item_icon {
   display: flex;
-  position: relative;
   background-color: black;
-  border: solid 2px green;
+  border: solid 2px var(--transparent-bg);
   border-radius: 6px;
-  margin-right: 10px;
   padding: 4px;
   line-height: 1;
+  margin-right: 10px;
 
   &.r0 {
     border-color: rgba(255, 255, 255, 0.2);
@@ -36,37 +35,10 @@
     border-color: #fc6b6b;
   }
 
-  .icon {
-    position: relative;
+
+  img {
+    width: 32px;
+    height: 32px;
     text-align: center;
-    margin: 4px;
-
-    img {
-      width: 32px;
-      height: 32px;
-    }
-  }
-
-  .name {
-    display: grid;
-    color: white;
-    font-size: 9pt;
-    transform: translateY(1px);
-  }
-
-  .qty {
-    display: grid;
-    color: white;
-    font-size: 9pt;
-    transform: translateY(4px);
-  }
-
-  .text {
-    display: grid;
-    font-size: 8pt;
-    color: black;
-    min-width: 120px;
-    margin: 4px;
-    vertical-align: middle;
   }
 }

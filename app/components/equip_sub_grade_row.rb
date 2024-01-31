@@ -9,7 +9,7 @@ class EquipSubGradeRow < ViewComponent::Base
           = render GradeStats.new(sub_grade)
       .item_lists
         - sub_grade.grade_items.each do |grade_item|
-          = render ItemIcon.new(equip, grade_item: grade_item)
+          = render ItemBadge.new(grade_item.item, grade_item: grade_item)
 
   HAML
 

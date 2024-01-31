@@ -1,21 +1,21 @@
-class ItemIcon < ViewComponent::Base
+class ItemBadge < ViewComponent::Base
   haml_template <<~HAML
-    .item_icon{ class: rarity_class }
+    .item_badge{ class: rarity_class }
       .icon
-        = link_to item_path(item) do
-          %img{ src: src, title: title }
+        = render ItemLink.new(item) do
+          = render ItemIcon.new(item)
       .text
-        .name= item.name
+        = render ItemLink.new(item) do
+          .name= item.name
         - if grade_item
           .qty= grade_item.qty
   HAML
 
-  attr_reader :equip, :grade_item, :item
+  attr_reader :item, :grade_item
 
-  def initialize(equip, grade_item: nil, item: nil)
-    @equip = equip
+  def initialize(item, grade_item: nil)
+    @item = item
     @grade_item = grade_item
-    @item = item || grade_item&.item
   end
 
   def rarity_class

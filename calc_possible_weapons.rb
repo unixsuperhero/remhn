@@ -31,7 +31,7 @@ end
 
 class ItemTracker
   attr_reader :items
-  attr_reader :last_possible_grade
+  attr_reader :last_grade
   attr_reader :possible
   attr_reader :done
 
@@ -47,7 +47,7 @@ class ItemTracker
     if have_all_items?(grade_items)
       use_all_items(grade_items)
       @possible = true
-      @last_possible_grade = grade
+      @last_grade = grade
     else
       @done = true
     end
@@ -64,10 +64,6 @@ class ItemTracker
     grade_items.each { |grade_item|
       items[grade_item.item_id - 1] -= grade_item.qty
     }
-  end
-
-  def last_grade
-    [last_possible_grade.grade, last_possible_grade.sub_grade]
   end
 end
 
@@ -119,10 +115,29 @@ Equip.weapons.each do |weap|
 end
 
 File.open('can_do.csv', 'w+') do |csv|
-  csv.puts CSV.generate_line(['monster_name', 'sub_type', 'grade', 'sub_grade', 'atk', 'crit', 'elem']).strip
+  headers = [
+    'monster_name',
+    'sub_type',
+    'grade',
+    'sub_grade',
+    'atk',
+    'crit',
+    'elem',
+  ]
+  csv.puts CSV.generate_line(headers).strip
 
-  can_do.sort_by{|_, arr| arr.join }.reverse.each do |weap, (y, z)|
-    mgr = weap.equip_grades.find_by(grade: y, sub_grade: z)
-    csv.puts CSV.generate_line([weap.monster&.name, weap.equip_subtype, mgr.grade, mgr.sub_grade, mgr.atk_power, mgr.crit_power, mgr.elem_power]).strip
+  can_do.sort_by{|_, grade|
+    [grade.grade, grade.sub_grade].join
+  }.reverse.each do |weap, mgr|
+    line = [
+      weap.monster&.name,
+      weap.equip_subtype,
+      mgr.grade,
+      mgr.sub_grade,
+      mgr.atk_power,
+      mgr.crit_power,
+      mgr.elem_power,
+    ]
+    csv.puts CSV.generate_line(line).strip
   end
 end

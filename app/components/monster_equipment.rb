@@ -5,12 +5,12 @@ class MonsterEquipment < ViewComponent::Base
         = render MonsterIcon.new(monster)
       .equip_icons
         .icon_list
-          - monster.equips.weapons.each.with_index do |equip, i|
-            = render EquipLink.new(equip) do
-              = render EquipIcon.new(equip, selected?(equip))
-          - monster.equips.armors.each do |equip|
-            = render EquipLink.new(equip) do
-              = render EquipIcon.new(equip, selected?(equip))
+          - 1.upto(13).each do |subtype|
+            - if equip = equips.find_by(equip_subtype: subtype)
+              = render EquipLink.new(equip) do
+                = render EquipIcon.new(equip, selected?(equip))
+            - else
+              = render EmptyEquipIcon.new(subtype)
   HAML
 
   attr_reader :monster, :selected
@@ -22,5 +22,9 @@ class MonsterEquipment < ViewComponent::Base
 
   def selected?(equip)
     selected == equip
+  end
+
+  def equips
+    monster.equips.order(:equip_subtype)
   end
 end

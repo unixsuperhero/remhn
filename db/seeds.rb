@@ -91,9 +91,11 @@ else
         rarity = 1
       end
 
+      sort_order = ItemSets::ORDER.index(name)
       items_by_name[name] ||= Item.create(
         name: name,
         rarity: rarity,
+        sort_order: sort_order,
       )
 
       i = items_by_name[name]

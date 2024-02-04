@@ -1,0 +1,18 @@
+.empty_equip_icon {
+  display: inline;
+  vertical-align: top;
+
+  img {
+    transform: translateY(7px);
+    filter: blur(5px);
+    width: 45px;
+    height: 45px;
+    border: solid 1px var(--transparent-bg);
+
+  }
+
+  &.small img {
+    width: 24px;
+    height: 24px;
+  }
+}

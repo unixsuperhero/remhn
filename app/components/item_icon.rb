@@ -6,7 +6,7 @@ class ItemIcon < ViewComponent::Base
 
   attr_reader :item
 
-  def initialize(item)
+  def initialize(item, icon_only: false)
     @item = item
   end
 

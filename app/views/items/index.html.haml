@@ -1,6 +1,6 @@
 %h1 Items
 #items
-  - ItemSets.all_by_set.each do |title, items|
+  - item_sets.each do |title, items|
     %h3= title
 
     - items.each do |item|

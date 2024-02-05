@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy ]
+  expose(:item)
+  expose(:item_sets) { ItemSets.all_by_set }
 
   # GET /items or /items.json
   def index

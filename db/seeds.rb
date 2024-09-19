@@ -39,6 +39,8 @@ else
     paralysis: Element.create(name: :paralysis),
     sleep: Element.create(name: :sleep),
     poison: Element.create(name: :poison),
+    blast: Element.create(name: :blast),
+    stun: Element.create(name: :stun),
   }.stringify_keys
 
   veg = Location.create(name: 'vegitation', areas: all_areas)
@@ -52,8 +54,15 @@ else
   monsters = db['guide'].map do |key, monster_info|
     name = db['en']['monster-name'][key]
     mon_areas = areas.values_at(*monster_info['biome'])
-    mon_weaknesses = elements.values_at(*monster_info['weakness'])
+    mon_weaknesses = elements.values_at(*monster_info['weakness'].keys)
+    mon_weaknesses << elements['poison'] if monster_info.fetch('poison', 0) > 0
+    mon_weaknesses << elements['paralysis'] if monster_info.fetch('paralysis', 0) > 0
+    mon_weaknesses << elements['sleep'] if monster_info.fetch('sleep', 0) > 0
+    mon_weaknesses << elements['blast'] if monster_info.fetch('blast', 0) > 0
+    mon_weaknesses << elements['stun'] if monster_info.fetch('stun', 0) > 0
+
     mon_elements = elements.values_at(*monster_info['elements'])
+
     mon = Monster.create(
       name: name,
       key: key,
@@ -104,6 +113,7 @@ else
     end
   end
 
+  # TODO: refactor starting here
   equips = db['set'].map do |key, eq_info|
     weaps = db['matForge'][key]
     armor = false
@@ -192,14 +202,23 @@ else
     created.each do |equip|
       tbl = EquipTable.for(equip)
 
+      forge_keys = eq_info.fetch('forge', {})
+      craft_keys = eq_info.fetch('craft', {})
+
       equip.unlock.upto(10).each do |gr|
-        cost_key = equip.armor? ? 'armorCost' : 'weaponCost'
+        cost_key = equip.armor? ? craft_keys['armor'] : craft_keys['weapon']
+        cost_key ||= equip.armor? ? 'armorCost' : 'weaponCost'
+        type_key = craft_keys['type']
+        type_key ||= 'costType'
         forge_cost_key = cost_key
         unless equip.starter
-          forge_cost_key = equip.armor? ? 'forgeArmorCost' : 'forgeWeaponCost'
+          forge_cost_key = equip.armor? ? forge_keys['armor'] : forge_keys['weapon']
+          forge_cost_key ||= equip.armor? ? 'forgeArmorCost' : 'forgeWeaponCost'
+          forge_type_key = forge_keys['type']
         end
 
         base_gr = (gr - 1) * 5
+
 
         1.upto(5).each do |subgr|
           costs = db[cost_key]
@@ -210,6 +229,7 @@ else
           end
 
           types = db['costType'][gr.to_s][subgr.to_s]
+          binding.pry if costs.nil?
           cost = forge ? costs[gr.to_s] : costs[gr.to_s][subgr.to_s]
 
           powers = db['weaponVal']

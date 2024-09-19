@@ -8,12 +8,15 @@ class Equip < ApplicationRecord
     "hammer"        => 5,
     "lance"         => 6,
     "light-gun"     => 7,
-    "bow"           => 8,
-    "helm"          => 9,
-    "mail"          => 10,
-    "gloves"        => 11,
-    "belt"          => 12,
-    "greaves"       => 13,
+    "heavy-gun"     => 8,
+    "charge-blade"  => 9,
+    "gunlance"      => 10,
+    "bow"           => 11,
+    "helm"          => 12,
+    "mail"          => 13,
+    "gloves"        => 14,
+    "belt"          => 15,
+    "greaves"       => 16,
   }
 
   belongs_to :element, optional: true
